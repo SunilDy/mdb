@@ -34,12 +34,9 @@ const getUserWatchlistMovies = async () => {
 };
 
 const getUserLikedSeries = async () => {
-  return await axios.get(
-    `${process.env.NEXT_PUBLIC_SERVER_URL}/api/series/like`,
-    {
-      withCredentials: true,
-    }
-  );
+  return await axios.get(`/api/series/like`, {
+    withCredentials: true,
+  });
 };
 
 const getUserWatchlistSeries = async () => {
