@@ -71,13 +71,13 @@ const Search = () => {
   console.log(router.query);
   return (
     <div className="bg-primary border-2 border-primary text-white xsm:px-2 lg:px-4 pt-10 min-h-screen">
-      <h1 className="text-green-400 xsm:text-xl lg:text-3xl font-semibold py-10">
+      <h1 className="text-green-400 xsm:text-md lg:text-3xl font-semibold xsm:py-1 lg:py-10 xsm:mx-2 md:mx-6">
         Search Items For: {router.query.name}
       </h1>
 
       {/* <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid my-10"> */}
-      <div>
-        <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
+      <div className="xsm:mx-2 md:mx-6">
+        <h1 className="text-white font-semibold z-20 xsm:text-md md:text-2xl">
           TV Shows Found
         </h1>
         {tvResults && tvResults.length > 0 ? (
@@ -89,25 +89,15 @@ const Search = () => {
           </div>
         ) : (
           <div>
-            <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl py-10">
+            <h1 className="text-white font-semibold z-20 xsm:text-md md:text-2xl py-10">
               No TV Shows Found
             </h1>
           </div>
         )}
       </div>
 
-      {/* <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
-        <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
-          {genreName} TV Shows
-        </h1>
-        <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
-          {data.results?.map((title: any) => (
-            <TvCard key={title.id} tv={title} />
-          ))}
-        </div> */}
-
-      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid my-10">
-        <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
+      <div className="xsm:mx-2 md:mx-6">
+        <h1 className="text-white font-semibold z-20 xsm:text-md md:text-2xl">
           Movies Found
         </h1>
         {movieResults && movieResults.length > 0 ? (
@@ -121,7 +111,7 @@ const Search = () => {
           </div>
         ) : (
           <div>
-            <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
+            <h1 className="text-white font-semibold z-20 xsm:text-md md:text-2xl">
               No Movies Found
             </h1>
           </div>
@@ -129,7 +119,7 @@ const Search = () => {
       </div>
 
       {!isLoadingTV && !isLoadingMovie && (
-        <p className="text-slate-600 bg-slate-200 w-fit mx-auto my-10 px-6 py-2 rounded-xl font-bold">
+        <p className="text-slate-600 bg-slate-200 w-fit mx-auto my-10 xsm:px-2 xsm:py-1 md:px-6 md:py-2 rounded-xl font-bold xsm:text-sm md:text-xl">
           End of Search Results
         </p>
       )}
