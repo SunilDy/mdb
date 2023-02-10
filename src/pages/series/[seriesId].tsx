@@ -591,7 +591,6 @@ const Movie = ({ data }: any) => {
       </div>
       {/* Blur */}
       <div className="h-20 bg-[#5c6b8b] absolute w-full z-10 blur-3xl"></div>
-      imagesRes.data.backdrops
       {/* Images ==================================================== */}
       <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
         <h1 className="text-white font-semibold xsm:text-xl md:text-2xl z-30">
