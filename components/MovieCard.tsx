@@ -35,8 +35,8 @@ const MovieCard = ({ movie, isDeleteAble, handleDelete }: MovieCardProps) => {
 
         <Link
           href={`/movies/${movie.id}`}
-          rel="noopener noreferrer"
-          target="_blank"
+          // rel="noopener noreferrer"
+          // target="_blank"
           className="col-span-full row-span-full"
         >
           <Image
