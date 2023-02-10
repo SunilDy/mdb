@@ -595,12 +595,12 @@ const Movie = ({ data }: any) => {
       <div className="h-20 bg-[#5c6b8b] absolute w-full z-10 blur-3xl"></div>
       imagesRes.data.backdrops
       {/* Images ==================================================== */}
-      {imagesRes?.data.backdrops && imagesRes?.data.backdrops.length > 0 && (
-        <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
-          <h1 className="text-white font-semibold xsm:text-xl md:text-2xl z-30">
-            Images
-          </h1>
-          {/* Image Grid With Buttons */}
+      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
+        <h1 className="text-white font-semibold xsm:text-xl md:text-2xl z-30">
+          Images
+        </h1>
+        {/* Image Grid With Buttons */}
+        {imagesRes?.data.backdrops && imagesRes?.data.backdrops.length > 0 ? (
           <div className="grid grid-cols-1 grid-rows-1">
             {travel > 600 && windowWidth > 480 && (
               <button
@@ -658,28 +658,38 @@ const Movie = ({ data }: any) => {
               </button>
             )}
           </div>
-        </div>
-      )}
+        ) : (
+          <div className="flex items-center gap-x-2">
+            <p className="text-green-400">No images!</p>
+          </div>
+        )}
+      </div>
       {/* Cast ==================================================== */}
       {castState && castState.length > 0 && (
         <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
           <h1 className="text-white font-semibold xsm:text-xl md:text-2xl mb-4">
             Cast
           </h1>
-          <div className="grid xsm:grid-cols-castsm lg:grid-cols-cast gap-4 text-white">
-            {castState?.map((cast: any, i: number) => (
-              <div key={cast.id}>
-                <Image
-                  className="xsm:w-12 xsm:h-12 lg:w-20 lg:h-20 mb-1 cursor-pointer rounded-full object-cover"
-                  src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
-                  alt={cast.name}
-                  height="100"
-                  width="100"
-                />
-                <p>{cast.original_name}</p>
-              </div>
-            ))}
-          </div>
+          {castState && castState.length > 0 ? (
+            <div className="grid xsm:grid-cols-castsm lg:grid-cols-cast gap-4 text-white">
+              {castState?.map((cast: any, i: number) => (
+                <div key={cast.id}>
+                  <Image
+                    className="xsm:w-12 xsm:h-12 lg:w-20 lg:h-20 mb-1 cursor-pointer rounded-full object-cover"
+                    src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
+                    alt={cast.name}
+                    height="100"
+                    width="100"
+                  />
+                  <p>{cast.original_name}</p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="flex items-center gap-x-2">
+              <p className="text-green-400">No cast details found!</p>
+            </div>
+          )}
         </div>
       )}
       {/* Videos */}
@@ -688,43 +698,40 @@ const Movie = ({ data }: any) => {
           <h1 className="text-white font-semibold xsm:text-xl md:text-2xl mb-4">
             Videos
           </h1>
-          <div className="grid gap-x-6 grid-cols-new5 gap-y-6">
-            {videoState?.map((video: any, i: number) => (
-              <div key={i} className="w-72">
-                <LiteYouTubeEmbed key={i} id={video.key} title={video.name} />
-              </div>
-            ))}
-          </div>
+          {videoState && videoState.length > 0 ? (
+            <div className="grid gap-x-6 grid-cols-new5 gap-y-6">
+              {videoState?.map((video: any, i: number) => (
+                <div key={i} className="w-72">
+                  <LiteYouTubeEmbed key={i} id={video.key} title={video.name} />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="flex items-center gap-x-2">
+              <p className="text-green-400">No videos!</p>
+            </div>
+          )}
         </div>
       )}
       {/* Recommended Titles Section ========================================== */}
-      {recommendedTitles && recommendedTitles.length > 0 && (
-        <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
-          <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
-            Recommended Titles
-          </h1>
+      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
+        <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
+          Recommended Titles
+        </h1>
+        {recommendedTitles && recommendedTitles.length > 0 ? (
           <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
             {recommendedTitles &&
               recommendedTitles?.map((title: any) => (
                 <TvCard key={title.id} tv={title} />
               ))}
           </div>
-        </div>
-      )}
-      {/* Similar Titles Section ========================================== */}
-      {/* {similarTitles && similarTitles.length > 0 && (
-        <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
-          <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
-            Similar Titles
-          </h1>
-          <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
-            {similarTitles &&
-              similarTitles?.map((title: any) => (
-                <TvCard key={title.id} tv={title} />
-              ))}
+        ) : (
+          <div className="flex items-center gap-x-2">
+            <p className="text-green-400">No recommended titles!</p>
           </div>
-        </div>
-      )} */}
+        )}
+      </div>
+      {/* Similar Titles Section ========================================== */}
       <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid my-10">
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
           Similar Titles
@@ -738,7 +745,7 @@ const Movie = ({ data }: any) => {
           </div>
         ) : (
           <div className="flex items-center gap-x-2">
-            <p className="text-green-400">No similar titles found</p>
+            <p className="text-green-400">No similar titles found!</p>
           </div>
         )}
       </div>
