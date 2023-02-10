@@ -35,7 +35,7 @@ const MovieCard = ({ movie, isDeleteAble, handleDelete }: MovieCardProps) => {
         </button>
 
         <Link
-          href={`${process.env.SERVER_URL}/movies/${movie.id}`}
+          href={`/movies/${movie.id}`}
           rel="noopener noreferrer"
           target="_blank"
           className="col-span-full row-span-full"
@@ -50,7 +50,7 @@ const MovieCard = ({ movie, isDeleteAble, handleDelete }: MovieCardProps) => {
         </Link>
       </div>
       <Link
-        href={`${process.env.SERVER_URL}/movies/${movie.id}`}
+        href={`/movies/${movie.id}`}
         rel="noopener noreferrer"
         target="_blank"
       >
