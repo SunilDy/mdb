@@ -16,21 +16,15 @@ const jose = Josefin_Sans({
 });
 
 const getUserLikedMovies = async () => {
-  return await axios.get(
-    `${process.env.NEXT_PUBLIC_SERVER_URL}/api/movies/like`,
-    {
-      withCredentials: true,
-    }
-  );
+  return await axios.get(`/api/movies/like`, {
+    withCredentials: true,
+  });
 };
 
 const getUserWatchlistMovies = async () => {
-  return await axios.get(
-    `${process.env.NEXT_PUBLIC_SERVER_URL}/api/movies/watchlist`,
-    {
-      withCredentials: true,
-    }
-  );
+  return await axios.get(`/api/movies/watchlist`, {
+    withCredentials: true,
+  });
 };
 
 const getUserLikedSeries = async () => {
@@ -40,12 +34,9 @@ const getUserLikedSeries = async () => {
 };
 
 const getUserWatchlistSeries = async () => {
-  return await axios.get(
-    `${process.env.NEXT_PUBLIC_SERVER_URL}/api/series/watchlist`,
-    {
-      withCredentials: true,
-    }
-  );
+  return await axios.get(`/api/series/watchlist`, {
+    withCredentials: true,
+  });
 };
 
 export default function Component() {
