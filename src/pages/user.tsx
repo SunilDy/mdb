@@ -411,7 +411,7 @@ export default function Component() {
   }
   if (name && image) {
     return (
-      <div className="xsm:mx-6 lg:mx-20 my-10">
+      <div className="xsm:px-2 md:px-10 lg:px-20 my-10">
         <nav className="flex justify-between items-center">
           {/* Avatar with greeting */}
           <div className="flex items-center">

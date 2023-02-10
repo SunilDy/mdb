@@ -61,7 +61,7 @@ const TrendingMovie = () => {
 
   return (
     <div className="bg-primary">
-      <h1 className="text-green-400 xsm:text-xl lg:text-3xl font-semibold md:px-10 lg:px-20 pt-10">
+      <h1 className="text-green-400 xsm:text-xl lg:text-3xl font-semibold xsm:px-2 md:px-10 lg:px-20 pt-10">
         Movies
       </h1>
       {/* Trending Movies Section ========================================== */}
