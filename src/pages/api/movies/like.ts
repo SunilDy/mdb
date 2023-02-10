@@ -39,6 +39,7 @@ export default async function handler(
   if (req.method === "POST") {
     try {
       const session = await getServerSession(req, res, authOptions);
+      console.log(session?.user)
       console.log("CONNECTING TO MONGO");
       await connectMongo();
       console.log("CONNECTED TO MONGO");

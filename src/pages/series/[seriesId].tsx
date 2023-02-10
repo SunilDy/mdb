@@ -246,7 +246,7 @@ const Movie = ({ data }: any) => {
     if (session?.user) {
       try {
         const result = await axios.post(
-          `${process.env.SERVER_URL}/api/series/like`,
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/api/series/like`,
           {
             seriesId: data.id,
           },
@@ -326,7 +326,7 @@ const Movie = ({ data }: any) => {
     if (session?.user) {
       try {
         const result = await axios.post(
-          `${process.env.SERVER_URL}/api/series/watchlist`,
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/api/series/watchlist`,
           {
             seriesId: data.id,
           },

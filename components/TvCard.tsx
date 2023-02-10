@@ -36,7 +36,7 @@ const TvCard = ({ tv, isDeleteAble, handleDelete }: TVCardProps) => {
         </button>
 
         <Link
-          href={`${process.env.SERVER_URL}/series/${tv.id}`}
+          href={`/series/${tv.id}`}
           rel="noopener noreferrer"
           target="_blank"
           className="col-span-full row-span-full"
@@ -54,7 +54,7 @@ const TvCard = ({ tv, isDeleteAble, handleDelete }: TVCardProps) => {
       </div>
 
       <Link
-        href={`${process.env.SERVER_URL}/series/${tv.id}`}
+        href={`$/series/${tv.id}`}
         rel="noopener noreferrer"
         target="_blank"
       >
