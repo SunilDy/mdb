@@ -266,7 +266,6 @@ const Movie = ({ data }: any) => {
             withCredentials: true,
           }
         );
-        // console.log(result.data);
         toast.custom((t) => (
           <div
             className={`${
@@ -346,7 +345,6 @@ const Movie = ({ data }: any) => {
             withCredentials: true,
           }
         );
-        // console.log(result.data);
         toast.custom((t) => (
           <div
             className={`${
@@ -445,7 +443,7 @@ const Movie = ({ data }: any) => {
               <h1
                 className={`${jose.className} xsm:text-xl md:text-2xl lg:text-4xl font-semibold`}
               >
-                {data.name}
+                {data.name || data.original_name}
               </h1>
               {data.homepage && (
                 <Link
@@ -665,54 +663,50 @@ const Movie = ({ data }: any) => {
         )}
       </div>
       {/* Cast ==================================================== */}
-      {castState && castState.length > 0 && (
-        <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
-          <h1 className="text-white font-semibold xsm:text-xl md:text-2xl mb-4">
-            Cast
-          </h1>
-          {castState && castState.length > 0 ? (
-            <div className="grid xsm:grid-cols-castsm lg:grid-cols-cast gap-4 text-white">
-              {castState?.map((cast: any, i: number) => (
-                <div key={cast.id}>
-                  <Image
-                    className="xsm:w-12 xsm:h-12 lg:w-20 lg:h-20 mb-1 cursor-pointer rounded-full object-cover"
-                    src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
-                    alt={cast.name}
-                    height="100"
-                    width="100"
-                  />
-                  <p>{cast.original_name}</p>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="flex items-center gap-x-2">
-              <p className="text-green-400">No cast details found!</p>
-            </div>
-          )}
-        </div>
-      )}
+      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
+        <h1 className="text-white font-semibold xsm:text-xl md:text-2xl mb-4">
+          Cast
+        </h1>
+        {castState && castState.length > 0 ? (
+          <div className="grid xsm:grid-cols-castsm lg:grid-cols-cast gap-4 text-white">
+            {castState?.map((cast: any, i: number) => (
+              <div key={cast.id}>
+                <Image
+                  className="xsm:w-12 xsm:h-12 lg:w-20 lg:h-20 mb-1 cursor-pointer rounded-full object-cover"
+                  src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
+                  alt={cast.name}
+                  height="100"
+                  width="100"
+                />
+                <p>{cast.original_name}</p>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex items-center gap-x-2">
+            <p className="text-green-400">No cast details found!</p>
+          </div>
+        )}
+      </div>
       {/* Videos */}
-      {videoState && videoState.length > 0 && (
-        <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
-          <h1 className="text-white font-semibold xsm:text-xl md:text-2xl mb-4">
-            Videos
-          </h1>
-          {videoState && videoState.length > 0 ? (
-            <div className="grid gap-x-6 grid-cols-new5 gap-y-6">
-              {videoState?.map((video: any, i: number) => (
-                <div key={i} className="w-72">
-                  <LiteYouTubeEmbed key={i} id={video.key} title={video.name} />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="flex items-center gap-x-2">
-              <p className="text-green-400">No videos!</p>
-            </div>
-          )}
-        </div>
-      )}
+      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
+        <h1 className="text-white font-semibold xsm:text-xl md:text-2xl mb-4">
+          Videos
+        </h1>
+        {videoState && videoState.length > 0 ? (
+          <div className="grid gap-x-6 grid-cols-new5 gap-y-6">
+            {videoState?.map((video: any, i: number) => (
+              <div key={i} className="w-72">
+                <LiteYouTubeEmbed key={i} id={video.key} title={video.name} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex items-center gap-x-2">
+            <p className="text-green-400">No videos!</p>
+          </div>
+        )}
+      </div>
       {/* Recommended Titles Section ========================================== */}
       <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
@@ -750,38 +744,40 @@ const Movie = ({ data }: any) => {
         )}
       </div>
       {/* Reviews ==================================================== */}
-      <div className="border-2 border-primary">
-        {reviewState && reviewState.length > 0 && (
-          <div className="xsm:m-2 lg:m-10 ">
-            <h1 className="text-white font-semibold xsm:text-xl md:text-2xl mb-4">
-              Reviews
-            </h1>
-            <div className="text-white px-6 grid xsm:grid-cols-reviewsm lg:grid-cols-review gap-4">
-              {reviewState?.map((review: any, i: number) => (
-                <div
+      <div className="border-2 border-primary bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid my-10">
+        <h1 className="text-white font-semibold xsm:text-xl md:text-2xl mb-4">
+          Reviews
+        </h1>
+        {reviewState && reviewState.length > 0 ? (
+          <div className="text-white px-6 grid xsm:grid-cols-reviewsm lg:grid-cols-review gap-4">
+            {reviewState?.map((review: any, i: number) => (
+              <div
+                key={i}
+                className="py-10 bg-green-200 rounded-lg px-4 h-fit flex bg-opacity-10 items-center"
+              >
+                <Image
                   key={i}
-                  className="py-10 bg-green-200 rounded-lg px-4 h-fit flex bg-opacity-10 items-center"
-                >
-                  <Image
-                    key={i}
-                    className="xsm:w-12 xsm:h-12 lg:w-20 lg:h-20 mb-1 cursor-pointer mr-2 rounded-full object-cover"
-                    src={`https://image.tmdb.org/t/p/original/${review.author_details.avatar_path}`}
-                    alt={review.author}
-                    height="100"
-                    width="100"
-                  />
-                  <div className="px-4 w-[80%]">
-                    <p className="text-green-400 font-bold">{review.author}</p>
-                    <p className="xsm:text-xs md:text-sm mb-2">
-                      {review.created_at}
-                    </p>
-                    <p className="text-ellipsis overflow-hidden whitespace-nowrap ... font-semibold xsm:text-sm md:text-md">
-                      &quot;{review.content}&quot;
-                    </p>
-                  </div>
+                  className="xsm:w-12 xsm:h-12 lg:w-20 lg:h-20 mb-1 cursor-pointer mr-2 rounded-full object-cover"
+                  src={`https://image.tmdb.org/t/p/original/${review.author_details.avatar_path}`}
+                  alt={review.author}
+                  height="100"
+                  width="100"
+                />
+                <div className="px-4 w-[80%]">
+                  <p className="text-green-400 font-bold">{review.author}</p>
+                  <p className="xsm:text-xs md:text-sm mb-2">
+                    {review.created_at}
+                  </p>
+                  <p className="text-ellipsis overflow-hidden whitespace-nowrap ... font-semibold xsm:text-sm md:text-md">
+                    &quot;{review.content}&quot;
+                  </p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex items-center gap-x-2">
+            <p className="text-green-400">No reviews yet!</p>
           </div>
         )}
       </div>
@@ -799,6 +795,7 @@ export const getServerSideProps = async (context: any) => {
     `https://api.themoviedb.org/3/tv/${params.seriesId}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`
   );
   const data = await res.json();
+  console.log(data);
   return {
     props: {
       data,

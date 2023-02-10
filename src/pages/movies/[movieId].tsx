@@ -447,7 +447,7 @@ const Movie = ({ data }: any) => {
               <h1
                 className={`${jose.className} xsm:text-xl md:text-2xl lg:text-4xl font-semibold`}
               >
-                {data.original_title}
+                {data.title || data.original_title}
               </h1>
               {data.homepage && (
                 <Link
@@ -582,66 +582,72 @@ const Movie = ({ data }: any) => {
 
       <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
         <h1 className="text-white font-semibold xsm:text-xl md:text-2xl z-30">
-          Images
+          Images imagesRes.data.backdrops
         </h1>
         {/* Image Grid With Buttons */}
-        <div className="grid grid-cols-1 grid-rows-1">
-          {travel > 600 && windowWidth > 480 && (
-            <button
-              className="text-white bg-primary p-2 font-bold self-center col-span-full row-span-full w-fit justify-self-start h-fit rounded-full z-20"
-              onClick={handleScrollPrev}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="xsm:w-6 xsm:h-6 lg:w-10 lg:h-10"
+        {imagesRes?.data.backdrops && imagesRes?.data.backdrops.length > 0 ? (
+          <div className="grid grid-cols-1 grid-rows-1">
+            {travel > 600 && windowWidth > 480 && (
+              <button
+                className="text-white bg-primary p-2 font-bold self-center col-span-full row-span-full w-fit justify-self-start h-fit rounded-full z-20"
+                onClick={handleScrollPrev}
               >
-                <path
-                  fillRule="evenodd"
-                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-4.28 9.22a.75.75 0 000 1.06l3 3a.75.75 0 101.06-1.06l-1.72-1.72h5.69a.75.75 0 000-1.5h-5.69l1.72-1.72a.75.75 0 00-1.06-1.06l-3 3z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
-          )}
-          <div
-            className="flex my-4 overflow-x-scroll scrollbar-hide col-span-full row-span-full"
-            // @ts-ignore
-            ref={imagesContainerRef}
-          >
-            {imagesRes &&
-              imagesRes.data.backdrops.map((backdrop: any, i: number) => (
-                <Image
-                  key={i}
-                  className="w-96 h-auto mb-1 cursor-pointer mr-2"
-                  src={`https://image.tmdb.org/t/p/original/${backdrop.file_path}`}
-                  alt={backdrop.file_path}
-                  height="280"
-                  width="160"
-                />
-              ))}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="xsm:w-6 xsm:h-6 lg:w-10 lg:h-10"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-4.28 9.22a.75.75 0 000 1.06l3 3a.75.75 0 101.06-1.06l-1.72-1.72h5.69a.75.75 0 000-1.5h-5.69l1.72-1.72a.75.75 0 00-1.06-1.06l-3 3z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            )}
+            <div
+              className="flex my-4 overflow-x-scroll scrollbar-hide col-span-full row-span-full"
+              // @ts-ignore
+              ref={imagesContainerRef}
+            >
+              {imagesRes &&
+                imagesRes.data.backdrops.map((backdrop: any, i: number) => (
+                  <Image
+                    key={i}
+                    className="w-96 h-auto mb-1 cursor-pointer mr-2"
+                    src={`https://image.tmdb.org/t/p/original/${backdrop.file_path}`}
+                    alt={backdrop.file_path}
+                    height="280"
+                    width="160"
+                  />
+                ))}
+            </div>
+            {windowWidth > 480 && (
+              <button
+                className="text-white bg-primary p-2 font-bold self-center col-span-full row-span-full w-fit justify-self-end h-fit rounded-full shadow-2xl"
+                onClick={handleScrollNext}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="xsm:w-6 xsm:h-6 lg:w-10 lg:h-10"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            )}
           </div>
-          {windowWidth > 480 && (
-            <button
-              className="text-white bg-primary p-2 font-bold self-center col-span-full row-span-full w-fit justify-self-end h-fit rounded-full shadow-2xl"
-              onClick={handleScrollNext}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="xsm:w-6 xsm:h-6 lg:w-10 lg:h-10"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
-          )}
-        </div>
+        ) : (
+          <div className="flex items-center gap-x-2">
+            <p className="text-green-400">No images!</p>
+          </div>
+        )}
       </div>
 
       {/* Cast ==================================================== */}
@@ -649,20 +655,26 @@ const Movie = ({ data }: any) => {
         <h1 className="text-white font-semibold xsm:text-xl md:text-2xl mb-4">
           Cast
         </h1>
-        <div className="grid xsm:grid-cols-castsm lg:grid-cols-cast gap-4 text-white">
-          {castState?.map((cast: any, i: number) => (
-            <div key={cast.id}>
-              <Image
-                className="xsm:w-12 xsm:h-12 lg:w-20 lg:h-20 mb-1 cursor-pointer rounded-full object-cover"
-                src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
-                alt={cast.name}
-                height="100"
-                width="100"
-              />
-              <p className="xsm:text-xs lg:text-sm">{cast.original_name}</p>
-            </div>
-          ))}
-        </div>
+        {castState && castState.length > 0 ? (
+          <div className="grid xsm:grid-cols-castsm lg:grid-cols-cast gap-4 text-white">
+            {castState?.map((cast: any, i: number) => (
+              <div key={cast.id}>
+                <Image
+                  className="xsm:w-12 xsm:h-12 lg:w-20 lg:h-20 mb-1 cursor-pointer rounded-full object-cover"
+                  src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
+                  alt={cast.name}
+                  height="100"
+                  width="100"
+                />
+                <p className="xsm:text-xs lg:text-sm">{cast.original_name}</p>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex items-center gap-x-2">
+            <p className="text-green-400">No cast details found!</p>
+          </div>
+        )}
       </div>
 
       {/* Videos */}
@@ -670,13 +682,19 @@ const Movie = ({ data }: any) => {
         <h1 className="text-white font-semibold xsm:text-xl md:text-2xl mb-4">
           Videos
         </h1>
-        <div className="grid gap-x-6 grid-cols-new5 gap-y-6">
-          {videoState?.map((video: any, i: number) => (
-            <div key={i} className="w-72">
-              <LiteYouTubeEmbed key={i} id={video.key} title={video.name} />
-            </div>
-          ))}
-        </div>
+        {videoState && videoState.length > 0 ? (
+          <div className="grid gap-x-6 grid-cols-new5 gap-y-6">
+            {videoState?.map((video: any, i: number) => (
+              <div key={i} className="w-72">
+                <LiteYouTubeEmbed key={i} id={video.key} title={video.name} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex items-center gap-x-2">
+            <p className="text-green-400">No videos!</p>
+          </div>
+        )}
       </div>
 
       {/* Recommended Titles Section ========================================== */}
@@ -684,12 +702,18 @@ const Movie = ({ data }: any) => {
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
           Recommended Titles
         </h1>
-        <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
-          {recommendedTitles &&
-            recommendedTitles?.map((title: any) => (
-              <MovieCard key={title.id} movie={title} />
-            ))}
-        </div>
+        {recommendedTitles && recommendedTitles.length > 0 ? (
+          <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
+            {recommendedTitles &&
+              recommendedTitles?.map((title: any) => (
+                <MovieCard key={title.id} movie={title} />
+              ))}
+          </div>
+        ) : (
+          <div className="flex items-center gap-x-2">
+            <p className="text-green-400">No recommended titles!</p>
+          </div>
+        )}
       </div>
       {/* Similar Titles Section ========================================== */}
       <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
@@ -705,44 +729,46 @@ const Movie = ({ data }: any) => {
           </div>
         ) : (
           <div className="flex items-center gap-x-2">
-            <p className="text-green-400">No similar titles found</p>
+            <p className="text-green-400">No similar titles found!</p>
           </div>
         )}
       </div>
 
       {/* Reviews ==================================================== */}
-      <div className="border-2 border-primary">
-        {reviewState && reviewState.length > 1 && (
-          <div className="xsm:m-2 lg:m-10 ">
-            <h1 className="text-white font-semibold xsm:text-xl md:text-2xl mb-4">
-              Reviews
-            </h1>
-            <div className="text-white px-6 grid xsm:grid-cols-reviewsm lg:grid-cols-review gap-4">
-              {reviewState?.map((review: any, i: number) => (
-                <div
+      <div className="border-2 border-primary bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid my-10">
+        <h1 className="text-white font-semibold xsm:text-xl md:text-2xl mb-4">
+          Reviews
+        </h1>
+        {reviewState && reviewState.length > 0 ? (
+          <div className="text-white px-6 grid xsm:grid-cols-reviewsm lg:grid-cols-review gap-4">
+            {reviewState?.map((review: any, i: number) => (
+              <div
+                key={i}
+                className="py-10 bg-green-200 rounded-lg px-4 h-fit flex bg-opacity-10 items-center"
+              >
+                <Image
                   key={i}
-                  className="py-10 bg-green-200 rounded-lg px-4 h-fit flex bg-opacity-10 items-center"
-                >
-                  <Image
-                    key={i}
-                    className="xsm:w-12 xsm:h-12 lg:w-20 lg:h-20 mb-1 cursor-pointer mr-2 rounded-full"
-                    src={`https://image.tmdb.org/t/p/original/${review.author_details.avatar_path}`}
-                    alt={review.author}
-                    height="100"
-                    width="100"
-                  />
-                  <div className="px-4 w-[80%]">
-                    <p className="text-green-400 font-bold">{review.author}</p>
-                    <p className="xsm:text-xs md:text-sm mb-2">
-                      {review.created_at}
-                    </p>
-                    <p className="text-ellipsis overflow-hidden whitespace-nowrap ... font-semibold xsm:text-sm md:text-md">
-                      &quot;{review.content}&quot;
-                    </p>
-                  </div>
+                  className="xsm:w-12 xsm:h-12 lg:w-20 lg:h-20 mb-1 cursor-pointer mr-2 rounded-full"
+                  src={`https://image.tmdb.org/t/p/original/${review.author_details.avatar_path}`}
+                  alt={review.author}
+                  height="100"
+                  width="100"
+                />
+                <div className="px-4 w-[80%]">
+                  <p className="text-green-400 font-bold">{review.author}</p>
+                  <p className="xsm:text-xs md:text-sm mb-2">
+                    {review.created_at}
+                  </p>
+                  <p className="text-ellipsis overflow-hidden whitespace-nowrap ... font-semibold xsm:text-sm md:text-md">
+                    &quot;{review.content}&quot;
+                  </p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex items-center gap-x-2">
+            <p className="text-green-400">No reviews yet!</p>
           </div>
         )}
       </div>

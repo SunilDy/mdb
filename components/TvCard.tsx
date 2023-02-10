@@ -46,7 +46,7 @@ const TvCard = ({ tv, isDeleteAble, handleDelete }: TVCardProps) => {
             blurDataURL={PosterPlaceholder.toString()}
             className="w-40 h-auto rounded-xl mb-1 cursor-pointer hover:shadow-3xl transition-shadow"
             src={`https://image.tmdb.org/t/p/original/${tv.poster_path}`}
-            alt={tv.original_name}
+            alt={tv.name || tv.original_name}
             height="280"
             width="160"
           />
@@ -59,7 +59,7 @@ const TvCard = ({ tv, isDeleteAble, handleDelete }: TVCardProps) => {
         target="_blank"
       >
         <p className="font-bold xsm:text-sm lg:text-lg">
-          {tv.original_name || tv.name}
+          {tv.name || tv.original_name}
         </p>
       </Link>
       <div className="flex justify-between">

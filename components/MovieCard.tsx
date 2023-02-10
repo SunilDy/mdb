@@ -10,7 +10,6 @@ type MovieCardProps = {
 
 const MovieCard = ({ movie, isDeleteAble, handleDelete }: MovieCardProps) => {
   const router = useRouter();
-
   return (
     <div key={movie.id} className="xsm:w-fit lg:w-40">
       <div className="grid grid-cols-1 grid-rows-1">
@@ -55,7 +54,7 @@ const MovieCard = ({ movie, isDeleteAble, handleDelete }: MovieCardProps) => {
         target="_blank"
       >
         <p className="font-bold xsm:text-sm lg:text-lg">
-          {movie.original_name || movie.original_title}
+          {movie.title || movie.original_title}
         </p>
       </Link>
       <div className="flex justify-between">
