@@ -37,8 +37,8 @@ const TvCard = ({ tv, isDeleteAble, handleDelete }: TVCardProps) => {
 
         <Link
           href={`/series/${tv.id}`}
-          rel="noopener noreferrer"
-          target="_blank"
+          // rel="noopener noreferrer"
+          // target="_blank"
           className="col-span-full row-span-full"
         >
           <Image
@@ -54,9 +54,9 @@ const TvCard = ({ tv, isDeleteAble, handleDelete }: TVCardProps) => {
       </div>
 
       <Link
-        href={`$/series/${tv.id}`}
-        rel="noopener noreferrer"
-        target="_blank"
+        href={`/series/${tv.id}`}
+        // rel="noopener noreferrer"
+        // target="_blank"
       >
         <p className="font-bold xsm:text-sm lg:text-lg">
           {tv.name || tv.original_name}

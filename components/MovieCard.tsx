@@ -50,8 +50,8 @@ const MovieCard = ({ movie, isDeleteAble, handleDelete }: MovieCardProps) => {
       </div>
       <Link
         href={`/movies/${movie.id}`}
-        rel="noopener noreferrer"
-        target="_blank"
+        // rel="noopener noreferrer"
+        // target="_blank"
       >
         <p className="font-bold xsm:text-sm lg:text-lg">
           {movie.title || movie.original_title}
