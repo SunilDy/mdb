@@ -75,12 +75,12 @@ const Search = () => {
         Search Items For: {router.query.name}
       </h1>
 
-      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid my-10">
+      {/* <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid my-10"> */}
+      <div>
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
           TV Shows Found
         </h1>
         {tvResults && tvResults.length > 0 ? (
-          // <div className="grid xsm:grid-cols-castsm lg:grid-cols-cast gap-4 text-white">
           <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
             {!isLoadingTV &&
               tvResults?.map((tv: SearchResult) => (
@@ -88,7 +88,6 @@ const Search = () => {
               ))}
           </div>
         ) : (
-          // </div>
           <div>
             <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl py-10">
               No TV Shows Found
