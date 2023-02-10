@@ -8,7 +8,7 @@ const jose = Josefin_Sans({
 const Footer = () => {
   return (
     <div>
-      <footer className="bg-black black text-slate-600 xsm:text-sm md:text-lg xsm:px-10 lg:px-24 py-10 sm:flex justify-around">
+      <footer className="bg-black black bg-opacity-20 text-slate-600 xsm:text-sm md:text-lg xsm:px-10 lg:px-24 py-10 sm:flex justify-around">
         {/* Logo ============= */}
         <div className="xsm:mb-4 sm:mb-0">
           <h1
