@@ -19,22 +19,6 @@ const Movies = ({ data }: any) => {
   else if (router.query.genreId === "9648") genreName = "Mystry";
   else if (router.query.genreId === "10766") genreName = "Soap";
 
-  const getMoviesByGenre = () => {
-    return axios.get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&with_genres=${router.query.genreId}&language=en-US&page=4`
-    );
-  };
-
-  const { data: actionMoviesResult } = useQuery(
-    `movies-by-genre-${router.query.genreId}`,
-    getMoviesByGenre,
-    {
-      refetchOnWindowFocus: false,
-    }
-  );
-
-  useEffect(() => {}, [actionMoviesResult]);
-
   let page = router.query.page;
   let pageParsed = 0;
   if (page) pageParsed = +page;
