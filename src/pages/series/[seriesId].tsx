@@ -439,7 +439,7 @@ const Movie = ({ data }: any) => {
           </div>
           <div className="basis-1/2 text-white">
             {/* Name With Link*/}
-            <div className="flex items-center gap-x-4">
+            <div className="flex items-center gap-x-4 xsm:mt-4 md:mt-0">
               <h1
                 className={`${jose.className} xsm:text-xl md:text-2xl lg:text-4xl font-semibold`}
               >
