@@ -15,8 +15,7 @@ export default function Navbar() {
   // console.log(session);
 
   const handleSearchKeyDown = (e: any) => {
-    if (e.key === "Enter")
-      router.push(`${process.env.SERVER_URL}/search?name=${searchValue}`);
+    if (e.key === "Enter") router.push(`/search?name=${searchValue}`);
   };
 
   useEffect(() => {
