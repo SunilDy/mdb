@@ -75,45 +75,49 @@ const Search = () => {
         Search Items For: {router.query.name}
       </h1>
 
-      {tvResults && tvResults.length > 0 ? (
-        <div className="xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
-          <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
-            TV Shows Found
-          </h1>
-          <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
-            {!isLoadingTV &&
-              tvResults?.map((tv: SearchResult) => (
-                <TvCard key={tv.id} tv={tv} />
-              ))}
+      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
+        {tvResults && tvResults.length > 0 ? (
+          <div className="grid xsm:grid-cols-castsm lg:grid-cols-cast gap-4 text-white">
+            <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
+              TV Shows Found
+            </h1>
+            <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
+              {!isLoadingTV &&
+                tvResults?.map((tv: SearchResult) => (
+                  <TvCard key={tv.id} tv={tv} />
+                ))}
+            </div>
           </div>
-        </div>
-      ) : (
-        <div>
-          <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl py-10">
-            No TV Shows Found
-          </h1>
-        </div>
-      )}
+        ) : (
+          <div>
+            <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl py-10">
+              No TV Shows Found
+            </h1>
+          </div>
+        )}
+      </div>
 
-      {movieResults && movieResults.length > 0 ? (
-        <>
-          <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
-            Movies Found
-          </h1>
-          <div className="grid grid-cols-new4 justify-between my-10 gap-y-6 text-white">
-            {!isLoadingMovie &&
-              movieResults?.map((movie: SearchResult) => (
-                <MovieCard key={movie.id} movie={movie} />
-              ))}
+      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
+        {movieResults && movieResults.length > 0 ? (
+          <div className="grid xsm:grid-cols-castsm lg:grid-cols-cast gap-4 text-white">
+            <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
+              Movies Found
+            </h1>
+            <div className="grid grid-cols-new4 justify-between my-10 gap-y-6 text-white">
+              {!isLoadingMovie &&
+                movieResults?.map((movie: SearchResult) => (
+                  <MovieCard key={movie.id} movie={movie} />
+                ))}
+            </div>
           </div>
-        </>
-      ) : (
-        <div>
-          <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
-            No Movies Found
-          </h1>
-        </div>
-      )}
+        ) : (
+          <div>
+            <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
+              No Movies Found
+            </h1>
+          </div>
+        )}
+      </div>
 
       {!isLoadingTV && !isLoadingMovie && (
         <p className="text-slate-600 bg-slate-200 w-fit mx-auto my-10 px-6 py-2 rounded-xl font-bold">
