@@ -6,19 +6,19 @@ import { FallingLines } from "react-loader-spinner";
 
 const getPopular = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+    `https://api.themoviedb.org/3/movie/popular?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
   );
 };
 
 const getTrendingMovies = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.API_KEY}`
+    `https://api.themoviedb.org/3/trending/movie/week?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
   );
 };
 
 const getTopRated = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.API_KEY}`
+    `https://api.themoviedb.org/3/movie/top_rated?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
   );
 };
 

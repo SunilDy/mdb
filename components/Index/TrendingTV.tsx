@@ -6,25 +6,25 @@ import { FallingLines } from "react-loader-spinner";
 
 const getTrendingTv = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.API_KEY}`
+    `https://api.themoviedb.org/3/trending/tv/day?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
   );
 };
 
 const getTopRated = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}`
+    `https://api.themoviedb.org/3/tv/top_rated?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
   );
 };
 
 const getPopular = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}`
+    `https://api.themoviedb.org/3/tv/popular?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
   );
 };
 
 const getNowPlaying = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.API_KEY}&language=en-US`
+    `https://api.themoviedb.org/3/tv/on_the_air?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`
   );
 };
 

@@ -29,13 +29,13 @@ const Search = () => {
 
   const getTVSearchItems = async () => {
     return await axios.get(
-      `https://api.themoviedb.org/3/search/tv?api_key=${process.env.API_KEY}&query=${router.query.name}`
+      `https://api.themoviedb.org/3/search/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&query=${router.query.name}`
     );
   };
 
   const getMovieSearchItems = async () => {
     return await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${router.query.name}`
+      `https://api.themoviedb.org/3/search/movie?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&query=${router.query.name}`
     );
   };
 

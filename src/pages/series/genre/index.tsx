@@ -18,43 +18,43 @@ const LoadMoreButton = (props: any) => {
 
 const getActionNAdventureTVs = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.API_KEY}&with_genres=10759&language=en-US`
+    `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10759&language=en-US`
   );
 };
 
 const getComicalTVs = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.API_KEY}&with_genres=35&language=en-US`
+    `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=35&language=en-US`
   );
 };
 
 const getCrimeTVs = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.API_KEY}&with_genres=80&language=en-US`
+    `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=80&language=en-US`
   );
 };
 
 const getDramaTVs = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.API_KEY}&with_genres=18&language=en-US`
+    `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=18&language=en-US`
   );
 };
 
 const getScienceFictionAndFantasyTVs = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.API_KEY}&with_genres=10765&language=en-US`
+    `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10765&language=en-US`
   );
 };
 
 const getMystryTVs = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.API_KEY}&with_genres=9648&language=en-US`
+    `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=9648&language=en-US`
   );
 };
 
 const getSoapTVs = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.API_KEY}&with_genres=10766&language=en-US`
+    `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10766&language=en-US`
   );
 };
 

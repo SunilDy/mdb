@@ -60,7 +60,7 @@ export const getServerSideProps = async (context: any) => {
   const { params, query } = context;
   console.log(query);
   const res = await fetch(
-    `https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.API_KEY}&page=${query.page}`
+    `https://api.themoviedb.org/3/tv/on_the_air?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&page=${query.page}`
   );
   const data = await res.json();
 
