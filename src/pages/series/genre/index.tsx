@@ -19,7 +19,11 @@ const LoadMoreButton = (props: any) => {
 const getActionNAdventureTVs = () => {
   return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
     `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10759&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10759&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
     `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10759&language=en-US`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
@@ -29,7 +33,11 @@ const getActionNAdventureTVs = () => {
 const getComicalTVs = () => {
   return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
     `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=35&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=35&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
     `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=35&language=en-US`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
@@ -39,7 +47,11 @@ const getComicalTVs = () => {
 const getCrimeTVs = () => {
   return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
     `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=80&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=80&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
     `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=80&language=en-US`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
@@ -49,7 +61,11 @@ const getCrimeTVs = () => {
 const getDramaTVs = () => {
   return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
     `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=18&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=18&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
     `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=18&language=en-US`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
@@ -59,7 +75,11 @@ const getDramaTVs = () => {
 const getScienceFictionAndFantasyTVs = () => {
   return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
     `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10765&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10765&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
     `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10765&language=en-US`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
@@ -69,7 +89,11 @@ const getScienceFictionAndFantasyTVs = () => {
 const getMystryTVs = () => {
   return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
     `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=9648&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=9648&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
     `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=9648&language=en-US`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
@@ -79,7 +103,11 @@ const getMystryTVs = () => {
 const getSoapTVs = () => {
   return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
     `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10766&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10766&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
     `https://api.themoviedb.org/3/discover/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10766&language=en-US`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb

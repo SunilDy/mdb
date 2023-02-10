@@ -82,7 +82,11 @@ export default async function handler(
                 let watchListMoviesArray: any[] | [] = []
                 for(let id in user.watchListMovies) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     let result = await axios.get(`https://api.themoviedb.org/3/movie/${user.watchListMovies[id]}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`)
+=======
+                    let result = await axios.get(`https://api.themoviedb.org/3/movie/${user.watchListMovies[id]}?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`)
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
                     let result = await axios.get(`https://api.themoviedb.org/3/movie/${user.watchListMovies[id]}?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`)
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb

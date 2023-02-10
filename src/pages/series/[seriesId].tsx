@@ -95,7 +95,11 @@ const Movie = ({ data }: any) => {
   const getRecommendedTitles = () => {
     return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
       `https://api.themoviedb.org/3/tv/${data.id}/recommendations?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+=======
+      `https://api.themoviedb.org/3/tv/${data.id}/recommendations?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
       `https://api.themoviedb.org/3/tv/${data.id}/recommendations?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
@@ -105,7 +109,11 @@ const Movie = ({ data }: any) => {
   const getSimilarTitles = () => {
     return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
       `https://api.themoviedb.org/3/tv/${data.id}/similar?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+=======
+      `https://api.themoviedb.org/3/tv/${data.id}/similar?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
       `https://api.themoviedb.org/3/tv/${data.id}/similar?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
@@ -115,7 +123,11 @@ const Movie = ({ data }: any) => {
   const getImages = () => {
     return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
       `https://api.themoviedb.org/3/tv/${data.id}/images?api_key=${process.env.NEXT_PUBLIC_API_KEY}&include_image_language=en,null`
+=======
+      `https://api.themoviedb.org/3/tv/${data.id}/images?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&include_image_language=en,null`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
       `https://api.themoviedb.org/3/tv/${data.id}/images?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&include_image_language=en,null`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
@@ -125,7 +137,11 @@ const Movie = ({ data }: any) => {
   const getVideos = () => {
     return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
       `https://api.themoviedb.org/3/tv/${data.id}/videos?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+=======
+      `https://api.themoviedb.org/3/tv/${data.id}/videos?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
       `https://api.themoviedb.org/3/tv/${data.id}/videos?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
@@ -135,7 +151,11 @@ const Movie = ({ data }: any) => {
   const getReviews = () => {
     return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
       `https://api.themoviedb.org/3/tv/${data.id}/reviews?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+=======
+      `https://api.themoviedb.org/3/tv/${data.id}/reviews?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
       `https://api.themoviedb.org/3/tv/${data.id}/reviews?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
@@ -145,7 +165,11 @@ const Movie = ({ data }: any) => {
   const getCredit = () => {
     return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
       `https://api.themoviedb.org/3/tv/${data.id}/credits?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+=======
+      `https://api.themoviedb.org/3/tv/${data.id}/credits?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
       `https://api.themoviedb.org/3/tv/${data.id}/credits?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
@@ -777,7 +801,11 @@ export const getServerSideProps = async (context: any) => {
 
   const res = await fetch(
 <<<<<<< HEAD
+<<<<<<< HEAD
     `https://api.themoviedb.org/3/tv/${params.seriesId}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`
+=======
+    `https://api.themoviedb.org/3/tv/${params.seriesId}?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
     `https://api.themoviedb.org/3/tv/${params.seriesId}?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb

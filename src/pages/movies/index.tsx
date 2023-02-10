@@ -19,7 +19,11 @@ const LoadMoreButton = (props: any) => {
 const getTopRated = () => {
   return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
     `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+=======
+    `https://api.themoviedb.org/3/movie/top_rated?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
     `https://api.themoviedb.org/3/movie/top_rated?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
@@ -29,7 +33,11 @@ const getTopRated = () => {
 const getPopular = () => {
   return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+=======
+    `https://api.themoviedb.org/3/movie/popular?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
     `https://api.themoviedb.org/3/movie/popular?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
@@ -39,7 +47,11 @@ const getPopular = () => {
 const getUpcoming = () => {
   return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
     `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+=======
+    `https://api.themoviedb.org/3/movie/upcoming?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
     `https://api.themoviedb.org/3/movie/upcoming?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
@@ -49,7 +61,11 @@ const getUpcoming = () => {
 const getNowPlaying = () => {
   return axios.get(
 <<<<<<< HEAD
+<<<<<<< HEAD
     `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+=======
+    `https://api.themoviedb.org/3/movie/now_playing?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 =======
     `https://api.themoviedb.org/3/movie/now_playing?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
 >>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
