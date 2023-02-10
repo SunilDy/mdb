@@ -257,7 +257,7 @@ const Movie = ({ data }: any) => {
     }
   };
 
-  const releaseDate = new Date(data.release_date);
+  let releaseDate = new Date(data.release_date);
   let readableReleaseDate = format(releaseDate, "MM/dd/yyyy");
 
   const handleLike = async () => {
@@ -696,12 +696,18 @@ const Movie = ({ data }: any) => {
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
           Similar Titles
         </h1>
-        <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
-          {similarTitles &&
-            similarTitles?.map((title: any) => (
-              <MovieCard key={title.id} movie={title} />
-            ))}
-        </div>
+        {similarTitles && similarTitles.length > 0 ? (
+          <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
+            {similarTitles &&
+              similarTitles?.map((title: any) => (
+                <MovieCard key={title.id} movie={title} />
+              ))}
+          </div>
+        ) : (
+          <div className="flex items-center gap-x-2">
+            <p className="text-green-400">No similar titles found</p>
+          </div>
+        )}
       </div>
 
       {/* Reviews ==================================================== */}
