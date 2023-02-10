@@ -81,7 +81,11 @@ export default async function handler(
             } else {
                 let likedMoviesArray: any[] | [] = []
                 for(let id in user.likedMovies) {
-                    let result = await axios.get(`https://api.themoviedb.org/3/movie/${user.likedMovies[id]}?api_key=${process.env.API_KEY}&language=en-US`)
+<<<<<<< HEAD
+                    let result = await axios.get(`https://api.themoviedb.org/3/movie/${user.likedMovies[id]}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`)
+=======
+                    let result = await axios.get(`https://api.themoviedb.org/3/movie/${user.likedMovies[id]}?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`)
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
                     likedMoviesArray = [...likedMoviesArray, result.data]
                 }
 

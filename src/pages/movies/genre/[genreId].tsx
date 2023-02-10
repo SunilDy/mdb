@@ -23,7 +23,7 @@ const Movies = ({ data }: any) => {
 
   const getMoviesByGenre = () => {
     return axios.get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&with_genres=${router.query.genreId}&language=en-US&page=4`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=${router.query.genreId}&language=en-US&page=4`
     );
   };
 
@@ -88,7 +88,7 @@ export const getServerSideProps = async (context: any) => {
   const { params, query } = context;
   console.log(query);
   const res = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=${query.genreId}&language=en-US&page=${query.page}`
+    `https://api.themoviedb.org/3/discover/movie?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=${query.genreId}&language=en-US&page=${query.page}`
   );
   const data = await res.json();
 

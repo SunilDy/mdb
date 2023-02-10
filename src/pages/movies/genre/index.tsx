@@ -18,61 +18,101 @@ const LoadMoreButton = (props: any) => {
 
 const getActionMovies = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&with_genres=28&language=en-US`
+<<<<<<< HEAD
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=28&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/movie?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=28&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
   );
 };
 
 const getAdventureMovies = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&with_genres=12&language=en-US`
+<<<<<<< HEAD
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=12&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/movie?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=12&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
   );
 };
 
 const getComicalMovies = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&with_genres=35&language=en-US`
+<<<<<<< HEAD
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=35&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/movie?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=35&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
   );
 };
 
 const getCrimeMovies = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&with_genres=80&language=en-US`
+<<<<<<< HEAD
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=80&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/movie?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=80&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
   );
 };
 
 const getDramaMovies = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&with_genres=18&language=en-US`
+<<<<<<< HEAD
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=18&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/movie?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=18&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
   );
 };
 
 const getFantasyMovies = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&with_genres=14&language=en-US`
+<<<<<<< HEAD
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=14&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/movie?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=14&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
   );
 };
 
 const getHorrorMovies = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&with_genres=27&language=en-US`
+<<<<<<< HEAD
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=27&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/movie?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=27&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
   );
 };
 
 const getMystryMovies = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&with_genres=9648&language=en-US`
+<<<<<<< HEAD
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=9648&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/movie?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=9648&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
   );
 };
 
 const getRomanceMovies = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&with_genres=10749&language=en-US`
+<<<<<<< HEAD
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10749&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/movie?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10749&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
   );
 };
 
 const getScienceFictionMovies = () => {
   return axios.get(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&with_genres=878&language=en-US`
+<<<<<<< HEAD
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=878&language=en-US`
+=======
+    `https://api.themoviedb.org/3/discover/movie?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=878&language=en-US`
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
   );
 };
 

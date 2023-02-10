@@ -27,6 +27,14 @@ yarn-error.log*
 
 # local env files
 .env*.local
+<<<<<<< HEAD
+<<<<<<< HEAD
+# .env.production
+=======
+>>>>>>> parent of 6e4c3a8 (test 3)
+=======
+# .env.production
+>>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
 
 # vercel
 .vercel
