@@ -60,7 +60,7 @@ export default function Navbar() {
           <div className="flex items-center gap-x-2 xsm:ml-4 sm:mx-0">
             <Link
               href={"/user"}
-              className="xsm:collapse xsm:w-0 lg:w-fit lg:visible"
+              className="xsm:collapse xsm:h-0 xsm:w-0 lg:h-fit lg:w-fit lg:visible"
             >
               <p className="text-green-400">Hello, {session?.user.name}</p>
             </Link>
