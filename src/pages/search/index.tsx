@@ -70,23 +70,23 @@ const Search = () => {
 
   console.log(router.query);
   return (
-    <div className="bg-primary border-2 border-primary px-28 text-white pt-10 min-h-screen">
+    <div className="bg-primary border-2 border-primary text-white xsm:px-2 lg:px-4 pt-10 min-h-screen">
       <h1 className="text-green-400 xsm:text-xl lg:text-3xl font-semibold py-10">
         Search Items For: {router.query.name}
       </h1>
 
       {tvResults && tvResults.length > 0 ? (
-        <>
+        <div className="xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
           <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
             TV Shows Found
           </h1>
-          <div className="grid grid-cols-new4 justify-between my-10 gap-y-6 text-white">
+          <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
             {!isLoadingTV &&
               tvResults?.map((tv: SearchResult) => (
                 <TvCard key={tv.id} tv={tv} />
               ))}
           </div>
-        </>
+        </div>
       ) : (
         <div>
           <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl py-10">
