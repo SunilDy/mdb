@@ -29,29 +29,13 @@ const Search = () => {
 
   const getTVSearchItems = async () => {
     return await axios.get(
-<<<<<<< HEAD
-<<<<<<< HEAD
       `https://api.themoviedb.org/3/search/tv?api_key=${process.env.NEXT_PUBLIC_API_KEY}&query=${router.query.name}`
-=======
-      `https://api.themoviedb.org/3/search/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&query=${router.query.name}`
->>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
-=======
-      `https://api.themoviedb.org/3/search/tv?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&query=${router.query.name}`
->>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
     );
   };
 
   const getMovieSearchItems = async () => {
     return await axios.get(
-<<<<<<< HEAD
-<<<<<<< HEAD
       `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&query=${router.query.name}`
-=======
-      `https://api.themoviedb.org/3/search/movie?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&query=${router.query.name}`
->>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
-=======
-      `https://api.themoviedb.org/3/search/movie?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&query=${router.query.name}`
->>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
     );
   };
 
