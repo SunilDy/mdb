@@ -86,7 +86,7 @@ export default function Component() {
     // console.log(id);
     try {
       const result = await axios.patch(
-        `${process.env.SERVER_URL}/api/movies/like`,
+        `/api/movies/like`,
         {
           movieId: id,
         },
@@ -163,7 +163,7 @@ export default function Component() {
     // console.log(id);
     try {
       const result = await axios.patch(
-        `${process.env.SERVER_URL}/api/movies/watchlist`,
+        `/api/movies/watchlist`,
         {
           movieId: id,
         },
@@ -240,7 +240,7 @@ export default function Component() {
     // console.log(id);
     try {
       const result = await axios.patch(
-        `${process.env.SERVER_URL}/api/series/like`,
+        `/api/series/like`,
         {
           seriesId: id,
         },
@@ -317,7 +317,7 @@ export default function Component() {
     // console.log(id);
     try {
       const result = await axios.patch(
-        `${process.env.SERVER_URL}/api/series/watchlist`,
+        `/api/series/watchlist`,
         {
           seriesId: id,
         },
