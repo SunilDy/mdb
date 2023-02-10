@@ -87,6 +87,7 @@ const Movie = ({ data }: any) => {
   const [similarTitles, setSimilarTitles] = useState<RelatedTitlesTVs[] | null>(
     null
   );
+  const [windowWidth, setWindowWidth] = useState<number>(976);
 
   const [reviewState, setReviewState] = useState<ReviewType[] | null>(null);
   const [videoState, setVideoState] = useState<VideoType[] | null>(null);
@@ -213,6 +214,17 @@ const Movie = ({ data }: any) => {
     videoState,
     castState,
   ]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+      };
+
+      setWindowWidth(window.innerWidth);
+      window.addEventListener("resize", handleResize);
+    }
+  }, []);
 
   // Image Slider Handlers
   const handleScrollPrev = () => {
@@ -584,13 +596,13 @@ const Movie = ({ data }: any) => {
       <div className="h-20 bg-[#5c6b8b] absolute w-full z-10 blur-3xl"></div>
 
       {/* Images ==================================================== */}
-      <div className="m-10">
+      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
         <h1 className="text-white font-semibold xsm:text-xl md:text-2xl z-30">
           Images
         </h1>
         {/* Image Grid With Buttons */}
         <div className="grid grid-cols-1 grid-rows-1">
-          {travel > 600 && (
+          {travel > 600 && windowWidth > 480 && (
             <button
               className="text-white bg-primary p-2 font-bold self-center col-span-full row-span-full w-fit justify-self-start h-fit rounded-full z-20"
               onClick={handleScrollPrev}
@@ -626,28 +638,30 @@ const Movie = ({ data }: any) => {
                 />
               ))}
           </div>
-          <button
-            className="text-white bg-primary p-2 font-bold self-center col-span-full row-span-full w-fit justify-self-end h-fit rounded-full shadow-2xl"
-            onClick={handleScrollNext}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="xsm:w-6 xsm:h-6 lg:w-10 lg:h-10"
+          {windowWidth > 480 && (
+            <button
+              className="text-white bg-primary p-2 font-bold self-center col-span-full row-span-full w-fit justify-self-end h-fit rounded-full shadow-2xl"
+              onClick={handleScrollNext}
             >
-              <path
-                fillRule="evenodd"
-                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="xsm:w-6 xsm:h-6 lg:w-10 lg:h-10"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
+          )}
         </div>
       </div>
 
       {/* Cast ==================================================== */}
-      <div className="m-10">
+      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
         <h1 className="text-white font-semibold xsm:text-xl md:text-2xl mb-4">
           Cast
         </h1>
@@ -668,7 +682,7 @@ const Movie = ({ data }: any) => {
       </div>
 
       {/* Videos */}
-      <div className="m-10">
+      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
         <h1 className="text-white font-semibold xsm:text-xl md:text-2xl mb-4">
           Videos
         </h1>

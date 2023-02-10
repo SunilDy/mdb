@@ -21,7 +21,7 @@ module.exports = {
         review: "repeat(auto-fit, minmax(24rem, 1fr))",
         reviewsm: "repeat(auto-fit, minmax(12rem, 1fr))",
         cast: "repeat(auto-fit, minmax(8rem, 1fr))",
-        castsm: "repeat(auto-fit, minmax(6rem, 1fr))",
+        castsm: "repeat(auto-fit, minmax(4rem, 1fr))",
       },
       boxShadow: {
         "3xl": "0 35px 60px -15px rgba(74, 222, 128, 1)",
