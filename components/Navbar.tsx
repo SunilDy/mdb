@@ -27,12 +27,12 @@ export default function Navbar() {
       <nav className="flex justify-between xsm:px-4 md:px-20 lg:px-24 xl:px-44 py-5 items-center sticky top-0 z-50 backdrop-blur-xl">
         <Link href="/">
           <h1
-            className={`${jose.className} xsm:text-lg md:text-xl lg:text-3xl text-green-400 sm:inline tracking-widest font-light`}
+            className={`${jose.className} xsm:text-lg md:text-xl lg:text-3xl text-green-400 sm:inline tracking-widest font-light xsm:mr-4 sm:mx-0`}
           >
             FlixBase
           </h1>
         </Link>
-        <div className="basis-2/4 grid grid-cols-1 grid-rows-1">
+        <div className="basis-2/4 grid grid-cols-1 grid-rows-1 xsm:grow sm:grow-0">
           <input
             className={`${jose.className} bg-primary border-2 border-green-400 pl-4 py-1 w-full rounded-md col-span-full row-span-full outline-transparent xsm:pr-9 lg:pr-12 placeholder:text-green-200 text-green-400 xsm:text-sm lg:text-lg xsm:font-light lg:font-bold`}
             placeholder="Search Movies, TV Shows..."
@@ -56,11 +56,8 @@ export default function Navbar() {
             />
           </svg>
         </div>
-        {/* <p className="text-lg font-semibold text-white sm:order-2 lg:order-2 xsm:inline">
-          SIGN IN
-        </p> */}
         {session?.user ? (
-          <div className="flex items-center gap-x-2">
+          <div className="flex items-center gap-x-2 xsm:ml-4 sm:mx-0">
             <Link
               href={"/user"}
               className="xsm:collapse xsm:w-0 lg:w-fit lg:visible"
@@ -84,7 +81,7 @@ export default function Navbar() {
           </div>
         ) : (
           <Link href={"/auth/login"}>
-            <p className="text-green-400 font-bold">Login</p>
+            <p className="text-green-400 font-bold xsm:ml-4 sm:mx-0">Login</p>
           </Link>
         )}
       </nav>
