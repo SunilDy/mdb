@@ -256,7 +256,7 @@ const Movie = ({ data }: any) => {
     if (session?.user) {
       try {
         const result = await axios.post(
-          `${process.env.NEXT_PUBLIC_SERVER_URL}/api/movies/like`,
+          `/api/movies/like`,
           {
             movieId: data.id,
           },
