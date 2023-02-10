@@ -18,43 +18,19 @@ const LoadMoreButton = (props: any) => {
 
 const getTopRated = () => {
   return axios.get(
-<<<<<<< HEAD
-<<<<<<< HEAD
     `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
-=======
-    `https://api.themoviedb.org/3/tv/top_rated?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
->>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
-=======
-    `https://api.themoviedb.org/3/tv/top_rated?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
->>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
   );
 };
 
 const getPopular = () => {
   return axios.get(
-<<<<<<< HEAD
-<<<<<<< HEAD
     `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
-=======
-    `https://api.themoviedb.org/3/tv/popular?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
->>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
-=======
-    `https://api.themoviedb.org/3/tv/popular?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}`
->>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
   );
 };
 
 const getNowPlaying = () => {
   return axios.get(
-<<<<<<< HEAD
-<<<<<<< HEAD
     `https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`
-=======
-    `https://api.themoviedb.org/3/tv/on_the_air?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`
->>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
-=======
-    `https://api.themoviedb.org/3/tv/on_the_air?NEXT_PUBLIC_API_KEY=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`
->>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
   );
 };
 
