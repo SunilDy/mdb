@@ -40,15 +40,7 @@ function randomNumber(min: number, max: number) {
 
 const getPopular = () => {
   return axios.get(
-<<<<<<< HEAD
-<<<<<<< HEAD
     `https://api.themoviedb.org/3/movie/top_rated?api_key=${
-=======
-    `https://api.themoviedb.org/3/movie/top_rated?NEXT_PUBLIC_API_KEY=${
->>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
-=======
-    `https://api.themoviedb.org/3/movie/top_rated?NEXT_PUBLIC_API_KEY=${
->>>>>>> 5779a48fe881f34acbbbeb4916d50268510cb8cb
       process.env.NEXT_PUBLIC_API_KEY
     }&page=${randomNumber(1, 100)}`
   );
