@@ -1,7 +1,7 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import { Josefin_Sans } from "@next/font/google";
-import { FallingLines } from "react-loader-spinner";
+import { TailSpin } from "react-loader-spinner";
 import Image from "next/image";
 import axios from "axios";
 import { useQuery } from "react-query";
@@ -398,8 +398,17 @@ export default function Component() {
     loadingWatchlistSeries
   ) {
     return (
-      <div className="flex justify-center items-center h-36">
-        <FallingLines color="#4ADE80" width="100" visible={true} />
+      <div className="flex justify-center items-center h-screen">
+        <TailSpin
+          height="80"
+          width="80"
+          color="#4ADE80"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
       </div>
     );
   }
@@ -412,7 +421,7 @@ export default function Component() {
   if (name && image) {
     return (
       <div className="xsm:px-2 md:px-10 lg:px-20 my-10">
-        <nav className="flex justify-between items-center">
+        <nav className="flex justify-between items-center xsm:my-4 md:my-6">
           {/* Avatar with greeting */}
           <div className="flex items-center">
             <Image
@@ -443,7 +452,7 @@ export default function Component() {
           <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
             Liked Movies
           </h1>
-          <div className="bg-green-400 text-primary py-1 xsm:px-2 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm md:text-lg">
+          <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
             {likedMovies?.data.result.length > 0 ? (
               likedMovies?.data.result.map((movie: any) => {
                 return (
