@@ -46,7 +46,11 @@ const getPopular = () => {
   );
 };
 
-const Carousal = () => {
+type CarousalProps = {
+  carousalData: any;
+};
+
+const Carousal = ({ carousalData }: CarousalProps) => {
   // const windowSize = useWindowSize();
   // console.log(windowSize.width);
   const [movies, setMovies] = useState<MovieType[] | null>(null);
@@ -113,6 +117,8 @@ const Carousal = () => {
     }
   }
 
+  let carousalSpliced = carousalData.splice(0, 5);
+
   return (
     <div className="text-white">
       {movies && (
@@ -124,8 +130,8 @@ const Carousal = () => {
           isPlaying={true}
         >
           <Slider>
-            {movies &&
-              movies.map((movie: MovieType, i: number) => (
+            {carousalSpliced &&
+              carousalSpliced.map((movie: MovieType, i: number) => (
                 <Slide key={movie.id} index={i}>
                   <div
                     className="h-full bg-center bg-cover grid grid-cols-1"
