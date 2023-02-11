@@ -4,6 +4,7 @@ import { Josefin_Sans } from "@next/font/google";
 import Google from "../../../public/icons/google.svg";
 import Github from "../../../public/icons/github.svg";
 import Image from "next/image";
+import Head from "next/head";
 
 const jose = Josefin_Sans({
   subsets: ["latin"],
@@ -18,6 +19,10 @@ const Login = () => {
   }
   return (
     <div className="text-white bg-slate-300 flex-col items-center bg-opacity-30 mx-auto w-fit xsm:my-20 md:my-36 flex justify-center p-10 rounded-md">
+      <Head>
+        <title>Login</title>
+        <meta name="description" content={"User Authrntication"} />
+      </Head>
       <h1
         className={`${jose.className} text-green-400 text-3xl font-bold my-4`}
       >

@@ -10,6 +10,7 @@ import TvCard from "components/TvCard";
 import MovieCard from "components/MovieCard";
 import Link from "next/link";
 import toast, { Toaster } from "react-hot-toast";
+import Head from "next/head";
 
 const jose = Josefin_Sans({
   subsets: ["latin"],
@@ -421,6 +422,10 @@ export default function Component() {
   if (name && image) {
     return (
       <div className="xsm:px-2 md:px-10 lg:px-20 my-10">
+        <Head>
+          <title>{name}&apos;s Profile</title>
+          <meta name="description" content={"User Profile"} />
+        </Head>
         <nav className="flex justify-between items-center xsm:my-4 md:my-6">
           {/* Avatar with greeting */}
           <div className="flex items-center">
