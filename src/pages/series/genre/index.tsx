@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import TvCard from "components/TvCard";
 import Link from "next/link";
+import Head from "next/head";
 
 const LoadMoreButton = (props: any) => {
   return (
@@ -103,6 +104,14 @@ const Movies = () => {
 
   return (
     <div className="bg-primary ">
+      <Head>
+        <title>Discover TV Shows By Genre</title>
+        <meta
+          name="description"
+          content="discover tv shows by genre from the website having collection of all the tv shows aired up to date"
+        />
+      </Head>
+
       <h1 className="text-green-400 xsm:text-xl lg:text-2xl font-semibold xsm:px-4 sm:px-6 md:px-10 lg:px-20 xsm:py-2 lg:py-10">
         Showing TV Series of Different Genres
       </h1>

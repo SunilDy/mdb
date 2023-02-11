@@ -1,6 +1,7 @@
 import MovieCard from "components/MovieCard";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Head from "next/head";
 
 const Upcoming = ({ data }: any) => {
   const router = useRouter();
@@ -11,6 +12,13 @@ const Upcoming = ({ data }: any) => {
 
   return (
     <div className="bg-primary border-2 border-primary">
+      <Head>
+        <title>Upcoming Movies</title>
+        <meta
+          name="description"
+          content={`discover upcoming movies from the website having collection of all the movies released up to date`}
+        />
+      </Head>
       {/*Movies Section ========================================== */}
       <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">

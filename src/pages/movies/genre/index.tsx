@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import MovieCard from "components/MovieCard";
 import Link from "next/link";
+import Head from "next/head";
 
 const LoadMoreButton = (props: any) => {
   return (
@@ -157,6 +158,14 @@ const Movies = () => {
 
   return (
     <div className="bg-primary ">
+      <Head>
+        <title>Discover Movies By Genre</title>
+        <meta
+          name="description"
+          content="discover movies by genre from the website having collection of all the movies released up to date"
+        />
+      </Head>
+
       <h1 className="text-green-400 xsm:text-xl lg:text-2xl font-semibold xsm:px-4 sm:px-6 md:px-10 lg:px-20 xsm:py-2 lg:py-10">
         Showing Movies of Different Genres
       </h1>

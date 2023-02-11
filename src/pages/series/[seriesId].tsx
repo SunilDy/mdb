@@ -11,6 +11,7 @@ import { useSession } from "next-auth/react";
 import toast, { Toaster } from "react-hot-toast";
 import { Josefin_Sans } from "@next/font/google";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const jose = Josefin_Sans({
   subsets: ["latin"],
@@ -414,6 +415,14 @@ const Movie = ({ data }: any) => {
 
   return (
     <div className="bg-primary">
+      <Head>
+        <title>TV: {data.name}</title>
+        <meta name="description" content={data.overview} />
+        {/* <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="John Doe">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta> */}
+      </Head>
+
       {/* Movie Section ========================================== */}
       <div className="grid">
         <Image

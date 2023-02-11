@@ -1,9 +1,7 @@
-import { useEffect } from "react";
-import { useQuery } from "react-query";
-import axios from "axios";
 import TvCard from "components/TvCard";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Head from "next/head";
 
 const Movies = ({ data }: any) => {
   const router = useRouter();
@@ -25,6 +23,13 @@ const Movies = ({ data }: any) => {
 
   return (
     <div className="bg-primary border-2 border-primary">
+      <Head>
+        <title>{genreName} TV Shows</title>
+        <meta
+          name="description"
+          content={`discover tv shows of ${genreName} genre from the website having collection of all the tv shows aired up to date`}
+        />
+      </Head>
       {/*Movies Section ========================================== */}
       <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">

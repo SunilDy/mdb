@@ -71,7 +71,9 @@ export default function Navbar() {
               href={"/user"}
               className="xsm:collapse xsm:h-0 xsm:w-0 lg:h-fit lg:w-fit lg:visible"
             >
-              <p className="text-green-400">Hello, {session?.user.name}</p>
+              <p className={`${jose.className} text-green-400`}>
+                Hello, {session?.user.name}
+              </p>
             </Link>
             <Link href={"/user"}>
               {/* <svg

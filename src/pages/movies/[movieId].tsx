@@ -11,6 +11,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import toast, { Toaster } from "react-hot-toast";
 import { Josefin_Sans } from "@next/font/google";
+import Head from "next/head";
 
 const jose = Josefin_Sans({
   subsets: ["latin"],
@@ -72,15 +73,6 @@ type CastType = {
   department?: any;
   job?: string;
 };
-
-/**
- * Changes
- * 3 Image Slider
- * 5 updated the opacity setting
- * 6 videos
- * 7 reviews
- * 8 credit
- */
 
 const Movie = ({ data }: any) => {
   const [recommendedTitles, setRecommendedTitles] = useState<
@@ -422,6 +414,13 @@ const Movie = ({ data }: any) => {
 
   return (
     <div className="bg-primary">
+      <Head>
+        <title>Movie: {data.title}</title>
+        <meta name="description" content={data.overview} />
+        {/* <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="John Doe">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta> */}
+      </Head>
       {/* Movie Section ========================================== */}
       <div className="grid">
         <Image

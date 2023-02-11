@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import MovieCard from "components/MovieCard";
 import TvCard from "components/TvCard";
+import Head from "next/head";
 
 type SearchResult = {
   adult: boolean;
@@ -71,6 +72,13 @@ const Search = () => {
   console.log(router.query);
   return (
     <div className="bg-primary border-2 border-primary text-white xsm:px-2 lg:px-4 pt-10 min-h-screen">
+      <Head>
+        <title>Search: {router.query.name}</title>
+        <meta
+          name="description"
+          content={`discover movies and tv-shows from the website having collection of all the movies released up to date`}
+        />
+      </Head>
       <h1 className="text-green-400 xsm:text-md lg:text-3xl font-semibold xsm:py-1 lg:py-10 xsm:mx-2 md:mx-6">
         Search Items For: {router.query.name}
       </h1>

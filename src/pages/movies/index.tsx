@@ -3,12 +3,13 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import MovieCard from "components/MovieCard";
 import Link from "next/link";
+import Head from "next/head";
 
 const LoadMoreButton = (props: any) => {
   return (
     <div className="flex items-center">
       <Link href={`movies/${props.section}?page=1`}>
-        <button className="flex justify-center items-center bg-green-400 text-primary px-6 py-2 rounded-2xl mb-1 cursor-pointer transition-shadow hover:shadow-3xl font-bold">
+        <button className="bg-green-400 text-primary py-1 xsm:px-2 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm md:text-lg">
           More...
         </button>
       </Link>
@@ -80,6 +81,13 @@ const Movies = () => {
 
   return (
     <div className="bg-primary">
+      <Head>
+        <title>Discover Movies</title>
+        <meta
+          name="description"
+          content={`discover movies from the website having collection of all the movies released up to date`}
+        />
+      </Head>
       {/* Now Playing Movies Section ========================================== */}
       <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">

@@ -6,6 +6,7 @@ import Five from "../../public/404/404_Five.svg";
 import Image from "next/image";
 import { Josefin_Sans } from "@next/font/google";
 import Link from "next/link";
+import Head from "next/head";
 
 const jose = Josefin_Sans({
   subsets: ["latin"],
@@ -21,6 +22,13 @@ let Message = "Sorry. Couldn't find what you were looking for!";
 export default function Page() {
   return (
     <div className="flex flex-col items-center my-10 px-24">
+      <Head>
+        <title>404!</title>
+        <meta
+          name="description"
+          content={`discover movies and tv-shows from the website having collection of all the movies released up to date`}
+        />
+      </Head>
       <Image
         className=""
         src={ImageArray[randomNumber(0, 4)]}

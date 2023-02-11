@@ -1,9 +1,7 @@
-import { useEffect } from "react";
-import { useQuery } from "react-query";
-import axios from "axios";
 import MovieCard from "components/MovieCard";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Head from "next/head";
 
 const Popular = ({ data }: any) => {
   const router = useRouter();
@@ -14,6 +12,13 @@ const Popular = ({ data }: any) => {
 
   return (
     <div className="bg-primary border-2 border-primary">
+      <Head>
+        <title>Movies Currently Playing</title>
+        <meta
+          name="description"
+          content={`discover movies that are currently from the website having collection of all the movies released up to date`}
+        />
+      </Head>
       {/*Movies Section ========================================== */}
       <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">

@@ -27,7 +27,7 @@ const Footer = () => {
             height={200}
           />
           <p className={`${jose.className} text-green-400 pb-4`}>
-            Discover Leisure
+            Discover Entertainment
           </p>
           <p>Personal Project</p>
           <p>Not Monitized</p>

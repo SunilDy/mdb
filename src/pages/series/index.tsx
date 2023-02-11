@@ -3,12 +3,13 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import TvCard from "components/TvCard";
 import Link from "next/link";
+import Head from "next/head";
 
 const LoadMoreButton = (props: any) => {
   return (
     <div className="flex items-center">
       <Link href={`series/${props.section}?page=1`}>
-        <button className="flex justify-center items-center bg-green-400 text-primary px-6 py-2 rounded-2xl mb-1 cursor-pointer transition-shadow hover:shadow-3xl font-bold">
+        <button className="bg-green-400 text-primary py-1 xsm:px-2 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm md:text-lg">
           More...
         </button>
       </Link>
@@ -59,10 +60,17 @@ const Series = () => {
 
   return (
     <div className="bg-primary">
+      <Head>
+        <title>Discover TV Shows</title>
+        <meta
+          name="description"
+          content={`discover tv shows from the website having collection of all the tv shows aired up to date`}
+        />
+      </Head>
       {/* Now Playing TV Section ========================================== */}
       <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
-          TV Series Currently Playing
+          TV Shows Currently On Air
         </h1>
         <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
           {nowPlayingTVResult?.data.results?.map((title: any) => (

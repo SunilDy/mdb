@@ -1,13 +1,10 @@
-import { useEffect } from "react";
-import { useQuery } from "react-query";
-import axios from "axios";
 import MovieCard from "components/MovieCard";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Head from "next/head";
 
 const Movies = ({ data }: any) => {
   const router = useRouter();
-  console.log(data.total_pages);
 
   let genreName = "";
   if (router.query.genreId === "28") genreName = "Action";
@@ -21,28 +18,19 @@ const Movies = ({ data }: any) => {
   else if (router.query.genreId === "878") genreName = "Sci-Fi";
   else if (router.query.genreId === "10749") genreName = "Romance";
 
-  const getMoviesByGenre = () => {
-    return axios.get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=${router.query.genreId}&language=en-US&page=4`
-    );
-  };
-
-  const { data: actionMoviesResult } = useQuery(
-    `movies-by-genre-${router.query.genreId}`,
-    getMoviesByGenre,
-    {
-      refetchOnWindowFocus: false,
-    }
-  );
-
-  useEffect(() => {}, [actionMoviesResult]);
-
   let page = router.query.page;
   let pageParsed = 0;
   if (page) pageParsed = +page;
 
   return (
     <div className="bg-primary border-2 border-primary">
+      <Head>
+        <title>{genreName} Movies</title>
+        <meta
+          name="description"
+          content={`discover movies of ${genreName} genre from the website having collection of all the movies released up to date`}
+        />
+      </Head>
       {/*Movies Section ========================================== */}
       <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
