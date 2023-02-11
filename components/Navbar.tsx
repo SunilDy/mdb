@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { Josefin_Sans } from "@next/font/google";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import LogoCut from "../public/logo/logo_cut.png";
 
 const jose = Josefin_Sans({
   subsets: ["latin"],
@@ -27,11 +28,18 @@ export default function Navbar() {
     <>
       <nav className="flex justify-between xsm:px-4 md:px-20 lg:px-24 xl:px-44 py-4 items-center sticky top-0 z-50 backdrop-blur-3xl">
         <Link href="/">
-          <h1
+          {/* <h1
             className={`${jose.className} xsm:text-lg md:text-xl lg:text-3xl text-green-400 sm:inline tracking-widest font-light xsm:mr-4 sm:mx-0`}
           >
             FlixBase
-          </h1>
+          </h1> */}
+          <Image
+            className="xsm:w-24 md:w-32 lg:w-36 xl:w-40 object-cover h-fit xsm:mx-2"
+            src={LogoCut}
+            alt={"Logo"}
+            width={400}
+            height={200}
+          />
         </Link>
         <div className="basis-2/4 grid grid-cols-1 grid-rows-1 xsm:grow sm:grow-0">
           <input

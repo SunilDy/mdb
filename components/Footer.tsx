@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Josefin_Sans } from "@next/font/google";
+import Image from "next/image";
+import LogoFull from "../public/logo/logo_cut.png";
 
 const jose = Josefin_Sans({
   subsets: ["latin"],
@@ -11,11 +13,22 @@ const Footer = () => {
       <footer className="bg-black black bg-opacity-20 text-slate-600 xsm:text-sm md:text-lg xsm:px-10 lg:px-24 py-10 sm:flex justify-around">
         {/* Logo ============= */}
         <div className="xsm:mb-4 sm:mb-0">
-          <h1
+          {/* <h1
             className={`${jose.className} xsm:text-lg md:text-xl lg:text-3xl text-green-400 sm:inline tracking-widest font-extralight`}
           >
             FlixBase
-          </h1>
+          </h1> */}
+
+          <Image
+            className="xsm:w-48 md:w-48 object-cover h-fit"
+            src={LogoFull}
+            alt={"Logo"}
+            width={400}
+            height={200}
+          />
+          <p className={`${jose.className} text-green-400 pb-4`}>
+            Discover Leisure
+          </p>
           <p>Personal Project</p>
           <p>Not Monitized</p>
         </div>
