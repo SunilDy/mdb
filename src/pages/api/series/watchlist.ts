@@ -41,7 +41,7 @@ export default async function handler(
       console.log("CONNECTED TO MONGO");
       let alreadyContains = false;
       let user: User | null = null;
-      if (session?.user) user = await User.findOne({ name: session.user.name });
+      if (session?.user) user = await User.findOne({ email: session.user.email });
       if (user) {
         if (user.watchListSeries.includes(req.body.seriesId)) {
           alreadyContains = true;
@@ -56,7 +56,7 @@ export default async function handler(
         } else {
           if (session?.user)
             User.findOneAndUpdate(
-              { name: session.user.name },
+              { email: session.user.email },
               {
                 $addToSet: { watchListSeries: req.body.seriesId },
               },
@@ -87,7 +87,7 @@ export default async function handler(
       await connectMongo();
       console.log("CONNECTED TO MONGO");
       let user: User | null = null;
-      if (session?.user) user = await User.findOne({ name: session.user.name });
+      if (session?.user) user = await User.findOne({ email: session.user.email });
       if (!user) {
         res.status(403).send({
           status: "err",
@@ -122,7 +122,7 @@ export default async function handler(
       console.log("CONNECTED TO MONGO");
       let seriesIdAlreadyInTheList = false;
       let user: User | null = null;
-      if (session?.user) user = await User.findOne({ name: session.user.name });
+      if (session?.user) user = await User.findOne({ email: session.user.email });
       if (user) {
         if (user.watchListSeries.includes(req.body.seriesId)) {
           seriesIdAlreadyInTheList = true;
@@ -142,7 +142,7 @@ export default async function handler(
         let user: User | null = null;
         if (session?.user)
           user = await User.findOneAndUpdate(
-            { name: session?.user.name },
+            { email: session?.user.email },
             { $pull: { watchListSeries: req.body.seriesId } },
             { new: true }
           );

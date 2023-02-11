@@ -37,7 +37,7 @@ export default async function handler(
             let alreadyContains = false;
             let user: User | null = null
             if(session?.user)
-                user = await User.findOne({ name: session.user.name })
+                user = await User.findOne({ email: session.user.email })
             if(user) {
                 if(user.watchListMovies.includes(req.body.movieId)) {
                     alreadyContains = true
@@ -46,7 +46,7 @@ export default async function handler(
                     res.status(403).send({status: "err", message: "Movie already exists in the watchlist"})
                 } else {
                     if(session?.user)
-                        User.findOneAndUpdate({name: session.user.name}, {
+                        User.findOneAndUpdate({email: session.user.email}, {
                             $addToSet: {watchListMovies: req.body.movieId}, 
                         }, {new: true}, function(err: any, user: User) {
                             if(err) {
@@ -72,7 +72,7 @@ export default async function handler(
             console.log('CONNECTED TO MONGO');
             let user: User | null = null
             if(session?.user)
-                user = await User.findOne({ name: session.user.name })
+                user = await User.findOne({ email: session.user.email })
             if(!user) {
                 res.status(403).send({
                     status: "err",
@@ -105,7 +105,7 @@ export default async function handler(
             let movieIdAlreadyInTheList = false
             let user: User | null = null
             if(session?.user)
-                user = await User.findOne({ name: session.user.name })
+                user = await User.findOne({ email: session.user.email })
             if(user) {
                 if(user.watchListMovies.includes(req.body.movieId)) {
                     movieIdAlreadyInTheList = true
@@ -125,7 +125,7 @@ export default async function handler(
                 let user: User | null = null
                 if(session?.user)
                     user = await User.findOneAndUpdate(
-                        { name: session?.user.name },
+                        { email: session?.user.email },
                         { $pull: {watchListMovies: req.body.movieId} },
                         { new: true}
                     )

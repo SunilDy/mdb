@@ -35,13 +35,37 @@ type MovieType = {
   vote_count: number;
 };
 
+type TvType = {
+  backdrop_path: null | string;
+  first_air_date: Date;
+  genre_ids: number[];
+  id: number;
+  name: string;
+  origin_country: string[];
+  original_language: string;
+  original_name: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  vote_average: number;
+  vote_count: number;
+};
+
 function randomNumber(min: number, max: number) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-const getPopular = () => {
+const getPopularMovies = () => {
   return axios.get(
     `https://api.themoviedb.org/3/movie/top_rated?api_key=${
+      process.env.NEXT_PUBLIC_API_KEY
+    }&page=${randomNumber(1, 100)}`
+  );
+};
+
+const getPopularSeries = () => {
+  return axios.get(
+    `https://api.themoviedb.org/3/tv/top_rated?api_key=${
       process.env.NEXT_PUBLIC_API_KEY
     }&page=${randomNumber(1, 100)}`
   );
@@ -53,6 +77,7 @@ type CarousalProps = {
 
 const Carousal = () => {
   const [movies, setMovies] = useState<MovieType[] | null>(null);
+  const [tv, setTv] = useState<TvType[] | null>(null);
   const [windowWidth, setWindowWidth] = useState<number | null>(null);
 
   useEffect(() => {
@@ -68,9 +93,17 @@ const Carousal = () => {
 
   useEffect(() => {}, [windowWidth]);
 
-  const { data: popularMoviesResult, isLoading } = useQuery(
+  const { data: popularMoviesResult, isLoading: isLoadingMovies } = useQuery(
     "popular-movies-carousal",
-    getPopular,
+    getPopularMovies,
+    {
+      refetchOnWindowFocus: false,
+    }
+  );
+
+  const { data: popularTVResult, isLoading: isLoadingTV } = useQuery(
+    "popular-tvs-carousal",
+    getPopularSeries,
     {
       refetchOnWindowFocus: false,
     }
@@ -86,11 +119,25 @@ const Carousal = () => {
         setMovies(spliced);
       }
     }
-  }, [popularMoviesResult]);
 
-  useEffect(() => {}, [movies]);
+    if (popularTVResult?.data) {
+      let filter = popularTVResult?.data.results.filter(
+        (res: any) => res.poster_path !== null && res.backdrop_path !== null
+      );
+      if (filter.length > 5) {
+        let spliced = filter.splice(0, 5);
+        setTv(spliced);
+      }
+    }
 
-  if (isLoading) {
+    // console.log(popularTVResult);
+  }, [popularMoviesResult, popularTVResult]);
+
+  useEffect(() => {
+    console.log(tv);
+  }, [movies, tv]);
+
+  if (isLoadingMovies || isLoadingTV) {
     return (
       <div className="flex justify-center items-center h-60">
         <TailSpin
@@ -131,11 +178,11 @@ const Carousal = () => {
 
   return (
     <div className="text-white">
-      {movies && (
+      {movies && tv && (
         <CarouselProvider
           naturalSlideWidth={carousalHeight}
           naturalSlideHeight={40}
-          totalSlides={movies.length}
+          totalSlides={movies.length + tv.length}
           interval={5000}
           isPlaying={true}
         >
@@ -164,7 +211,7 @@ const Carousal = () => {
                         <h1
                           className={`${jose.className} text-white font-bold xsm:text-xs sm:text-sm md:text-lg lg:text-xl xl:text-3xl`}
                         >
-                          {movie.original_title}
+                          {movie.title || movie.original_title}
                         </h1>
                         <p className="lg:my-2 xl:my-6 xsm:text-xs sm:text-sm lg:text-lg text-slate-300">
                           {movie.overview}
@@ -191,6 +238,75 @@ const Carousal = () => {
                             </button>
                           </Link>
                           <Link href={`/movies`}>
+                            <button className="text-green-400 py-1 xsm:px-2 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm md:text-lg">
+                              More
+                            </button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Buttons */}
+
+                    <ButtonBack className="xsm:collapse lg:visible col-span-full row-span-full justify-self-start h-full bg-slate-400 bg-opacity-20 backdrop-blur-xl px-3 hover:font-bold">
+                      &lt;
+                    </ButtonBack>
+                    <ButtonNext className="xsm:collapse lg:visible col-span-full row-span-full h-full justify-self-end bg-slate-400 bg-opacity-20 backdrop-blur-xl px-3 hover:font-bold">
+                      &gt;
+                    </ButtonNext>
+                  </div>
+                </Slide>
+              ))}
+            {tv &&
+              tv.map((tv: TvType, i: number) => (
+                <Slide key={tv.id} index={i}>
+                  <div
+                    className="h-full bg-center bg-cover grid grid-cols-1"
+                    style={{
+                      backgroundImage: `url(https://image.tmdb.org/t/p/original/${tv.backdrop_path})`,
+                    }}
+                  >
+                    {/* Layer Div */}
+                    <div className="col-span-full row-span-full bg-primary bg-opacity-80"></div>
+                    {/* Content Div */}
+                    <div className="col-span-full row-span-full flex items-center xsm:w-[96%] lg:w-[80%] place-self-center">
+                      <Image
+                        className="xsm:w-16 sm:w-24 md:w-32 lg:w-36 xl:w-44 shadow-2xl rounded-2xl h-auto mb-1 object-top items-center xsm:mr-4 lg:mr-10"
+                        src={`https://image.tmdb.org/t/p/original/${tv.poster_path}`}
+                        alt={tv.original_name}
+                        height="1000"
+                        width="1000"
+                      />
+                      <div>
+                        <h1
+                          className={`${jose.className} text-white font-bold xsm:text-xs sm:text-sm md:text-lg lg:text-xl xl:text-3xl`}
+                        >
+                          {tv.name || tv.original_name}
+                        </h1>
+                        <p className="lg:my-2 xl:my-6 xsm:text-xs sm:text-sm lg:text-lg text-slate-300">
+                          {tv.overview}
+                        </p>
+                        <div className="flex">
+                          <p className="xsm:text-xs sm:text-sm lg:text-lg mr-2">
+                            Language:{" "}
+                          </p>
+                          <p className="xsm:text-xs sm:text-sm lg:text-lg mr-2 font-semibold">
+                            {tv.original_language}
+                          </p>
+                        </div>
+                        {/* Rating */}
+                        <p className="my-4 xsm:text-xs sm:text-sm lg:text-lg">
+                          Rating:{" "}
+                          <span className="font-bold text-green-400 xsm:text-xs sm:text-sm lg:text-lg">
+                            {tv.vote_average.toFixed(1)} ({tv.vote_count})
+                          </span>
+                        </p>
+                        <div className="flex gap-x-1">
+                          <Link href={`/series/${tv.id}`}>
+                            <button className="bg-green-400 text-primary py-1 xsm:px-2 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm md:text-lg">
+                              Visit
+                            </button>
+                          </Link>
+                          <Link href={`/series`}>
                             <button className="text-green-400 py-1 xsm:px-2 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm md:text-lg">
                               More
                             </button>

@@ -9,6 +9,7 @@ const UserSchema = new Schema({
   watchListMovies: [String],
   likedSeries: [String],
   watchListSeries: [String],
+  refresh_token_expires_in: String
 });
 
 const User = models.users || model('users', UserSchema);

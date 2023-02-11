@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="flex justify-between xsm:px-4 md:px-20 lg:px-24 xl:px-44 py-5 items-center sticky top-0 z-50 backdrop-blur-3xl">
+      <nav className="flex justify-between xsm:px-4 md:px-20 lg:px-24 xl:px-44 py-4 items-center sticky top-0 z-50 backdrop-blur-3xl">
         <Link href="/">
           <h1
             className={`${jose.className} xsm:text-lg md:text-xl lg:text-3xl text-green-400 sm:inline tracking-widest font-light xsm:mr-4 sm:mx-0`}
