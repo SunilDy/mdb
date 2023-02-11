@@ -61,12 +61,12 @@ const TrendingMovie = () => {
 
   return (
     <div className="bg-primary">
-      <h1 className="text-green-400 xsm:text-xl lg:text-3xl font-semibold xsm:px-2 md:px-10 lg:px-20 pt-10">
+      <h1 className="text-green-400 xsm:text-xl lg:text-3xl font-semibold xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-10">
         Movies
       </h1>
       {/* Trending Movies Section ========================================== */}
 
-      <div className="xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
+      <div className="xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
           Trending Movies
         </h1>
@@ -79,7 +79,7 @@ const TrendingMovie = () => {
 
       {/* Popular Movies Section ========================================== */}
 
-      <div className="xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
+      <div className="xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
           Popular Movies
         </h1>

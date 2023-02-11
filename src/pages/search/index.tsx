@@ -101,13 +101,11 @@ const Search = () => {
           Movies Found
         </h1>
         {movieResults && movieResults.length > 0 ? (
-          <div className="grid xsm:grid-cols-castsm lg:grid-cols-cast gap-4 text-white">
-            <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
-              {!isLoadingMovie &&
-                movieResults?.map((movie: SearchResult) => (
-                  <MovieCard key={movie.id} movie={movie} />
-                ))}
-            </div>
+          <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
+            {!isLoadingMovie &&
+              movieResults?.map((movie: SearchResult) => (
+                <MovieCard key={movie.id} movie={movie} />
+              ))}
           </div>
         ) : (
           <div>

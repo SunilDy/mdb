@@ -439,11 +439,11 @@ export default function Component() {
         </nav>
 
         {/* Liked Movies */}
-        <div className="xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
+        <div className="xsm:mx-2 md:mx-6">
           <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
             Liked Movies
           </h1>
-          <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
+          <div className="bg-green-400 text-primary py-1 xsm:px-2 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm md:text-lg">
             {likedMovies?.data.result.length > 0 ? (
               likedMovies?.data.result.map((movie: any) => {
                 return (
@@ -472,7 +472,7 @@ export default function Component() {
         </div>
 
         {/* Watchlist Movies */}
-        <div className="xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
+        <div className="xsm:mx-2 md:mx-6">
           <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
             Movies In Your Watchlist
           </h1>
@@ -495,7 +495,7 @@ export default function Component() {
                   href={"/movies"}
                   // className="bg-green-400 text-primary p-2"
                 >
-                  <button className="bg-green-400 text-primary py-1 xsm:px-1 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm lg:text-sm">
+                  <button className="bg-green-400 text-primary py-1 xsm:px-2 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm md:text-lg">
                     add some
                   </button>
                 </Link>
@@ -505,7 +505,7 @@ export default function Component() {
         </div>
 
         {/* Liked Series */}
-        <div className="xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
+        <div className="xsm:mx-2 md:mx-6">
           <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
             Liked TV Shows
           </h1>
@@ -528,7 +528,7 @@ export default function Component() {
                   href={"/series"}
                   // className="bg-green-400 text-primary p-2"
                 >
-                  <button className="bg-green-400 text-primary py-1 xsm:px-1 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm lg:text-sm">
+                  <button className="bg-green-400 text-primary py-1 xsm:px-2 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm md:text-lg">
                     add some
                   </button>
                 </Link>
@@ -538,7 +538,7 @@ export default function Component() {
         </div>
 
         {/* Watchlist Series */}
-        <div className="xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
+        <div className="xsm:mx-2 md:mx-6">
           <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
             TV Shows In Your Watchlist
           </h1>
@@ -561,7 +561,7 @@ export default function Component() {
                   href={"/series"}
                   // className="bg-green-400 text-primary p-2"
                 >
-                  <button className="bg-green-400 text-primary py-1 xsm:px-1 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm lg:text-sm">
+                  <button className="bg-green-400 text-primary py-1 xsm:px-2 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm md:text-lg">
                     add some
                   </button>
                 </Link>

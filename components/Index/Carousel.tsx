@@ -170,12 +170,12 @@ const Carousal = () => {
                         </p>
                         <div className="flex gap-x-1">
                           <Link href={`/movies/${movie.id}`}>
-                            <button className="bg-green-400 text-primary lg:py-1 px-4 rounded-lg font-semibold xsm:text-xs sm:text-sm lg:text-lg">
+                            <button className="bg-green-400 text-primary py-1 xsm:px-2 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm md:text-lg">
                               Visit
                             </button>
                           </Link>
                           <Link href={`/movies`}>
-                            <button className="text-green-400 lg:p-2 rounded-lg font-semibold xsm:text-xs sm:text-sm lg:text-lg">
+                            <button className="text-green-400 py-1 xsm:px-2 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm md:text-lg">
                               More
                             </button>
                           </Link>

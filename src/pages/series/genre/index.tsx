@@ -103,13 +103,13 @@ const Movies = () => {
 
   return (
     <div className="bg-primary ">
-      <h1 className="text-green-400 xsm:text-xl lg:text-2xl font-semibold md:px-10 lg:px-20 py-10">
+      <h1 className="text-green-400 xsm:text-xl lg:text-2xl font-semibold xsm:px-4 sm:px-6 md:px-10 lg:px-20 xsm:py-2 lg:py-10">
         Showing TV Series of Different Genres
       </h1>
 
       {/* Action Movies Section ========================================== */}
-      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
-        <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
+      <div className="xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
+        <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl ">
           Action and Adventure TV Series
         </h1>
         <div className="grid xsm:grid-cols-new4xsm lg:grid-cols-new4 justify-between my-10 gap-x-6 gap-y-6 text-white">
@@ -121,7 +121,7 @@ const Movies = () => {
       </div>
 
       {/* Comical Movies Section ========================================== */}
-      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
+      <div className="xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
           Comical TV Series
         </h1>
@@ -134,7 +134,7 @@ const Movies = () => {
       </div>
 
       {/* Crime TV Series Section ========================================== */}
-      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
+      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
           Crime TV Series
         </h1>
@@ -147,7 +147,7 @@ const Movies = () => {
       </div>
 
       {/* Drama TV Series Section ========================================== */}
-      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
+      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
           Drama TV Series
         </h1>
@@ -160,7 +160,7 @@ const Movies = () => {
       </div>
 
       {/* Fantasy and Science-Fiction TV Series Section ========================================== */}
-      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
+      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
           Fantasy and Science-Fiction TV Series
         </h1>
@@ -173,7 +173,7 @@ const Movies = () => {
       </div>
 
       {/* Mystry TV Series Section ========================================== */}
-      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
+      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
           Mystry TV Series
         </h1>
@@ -186,7 +186,7 @@ const Movies = () => {
       </div>
 
       {/* Soap TV Series Section ========================================== */}
-      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6 grid ">
+      <div className="bg-primary xsm:px-4 sm:px-6 md:px-10 lg:px-20 pt-6">
         <h1 className="text-white font-semibold z-20 xsm:text-xl md:text-2xl">
           Soap TV Series
         </h1>

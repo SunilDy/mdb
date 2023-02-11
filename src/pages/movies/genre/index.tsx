@@ -157,7 +157,7 @@ const Movies = () => {
 
   return (
     <div className="bg-primary ">
-      <h1 className="text-green-400 xsm:text-xl lg:text-2xl font-semibold md:px-10 lg:px-20 py-10">
+      <h1 className="text-green-400 xsm:text-xl lg:text-2xl font-semibold xsm:px-4 sm:px-6 md:px-10 lg:px-20 xsm:py-2 lg:py-10">
         Showing Movies of Different Genres
       </h1>
 
