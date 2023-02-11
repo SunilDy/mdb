@@ -129,7 +129,6 @@ const Carousal = ({ carousalData }: CarousalProps) => {
           interval={5000}
           isPlaying={true}
         >
-          {/* added */}
           <Slider>
             {carousalSpliced &&
               carousalSpliced.map((movie: MovieType, i: number) => (
