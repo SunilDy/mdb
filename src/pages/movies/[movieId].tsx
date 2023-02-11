@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import toast, { Toaster } from "react-hot-toast";
 import { Josefin_Sans } from "@next/font/google";
 import Head from "next/head";
+import Modal from "components/Modal";
 
 const jose = Josefin_Sans({
   subsets: ["latin"],
@@ -85,6 +86,16 @@ const Movie = ({ data }: any) => {
   const [videoState, setVideoState] = useState<VideoType[] | null>(null);
   const [castState, setCastState] = useState<CastType[] | null>(null);
   const [windowWidth, setWindowWidth] = useState<number>(976);
+
+  // Image gallery modal states
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [imageGallreyLength, setImageGalleryLength] = useState(0);
+  const [imageGalleryIndex, setImageGalleryIndex] = useState(0);
+
+  // review modal states
+  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
+  const [reviewResultLength, setReviewResultLength] = useState(0);
+  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
 
   const { data: session } = useSession();
   const router = useRouter();
@@ -180,6 +191,10 @@ const Movie = ({ data }: any) => {
         setCastState(filtered);
       }
     }
+
+    if (imagesRes?.data) {
+      setImageGalleryLength(imagesRes?.data.backdrops.length);
+    }
   }, [recommendedTitlesRes, similarTitlesRes, imagesRes, videoRes, creditRes]);
 
   useEffect(() => {
@@ -192,19 +207,26 @@ const Movie = ({ data }: any) => {
       });
       let withDate = newArr.map((item: ReviewType) => {
         let date = new Date(item.created_at);
-        let readableDate = format(date, "MM/dd/yyyy HH:mm:ss");
+        let readableDate = format(date, "MM/dd/yyyy");
         return { ...item, created_at: readableDate };
       });
       setReviewState(withDate);
+      setReviewResultLength(withDate.length);
     }
   }, [reviewsRes]);
 
-  useEffect(() => {}, [
+  useEffect(() => {
+    console.log("reviewResultLength", reviewResultLength);
+  }, [
     similarTitles,
     recommendedTitles,
     reviewState,
     videoState,
     castState,
+    imageGallreyLength,
+    imageGalleryIndex,
+    reviewResultLength,
+    currentReviewIndex,
   ]);
 
   useEffect(() => {
@@ -412,6 +434,22 @@ const Movie = ({ data }: any) => {
     }
   };
 
+  const handleGalleryNext = () => {
+    if (imageGalleryIndex === imageGallreyLength - 1) {
+      setImageGalleryIndex(0);
+    } else {
+      setImageGalleryIndex(imageGalleryIndex + 1);
+    }
+  };
+
+  const handleGalleryPrevious = () => {
+    if (imageGalleryIndex === 0) {
+      setImageGalleryIndex(imageGallreyLength - 1);
+    } else {
+      setImageGalleryIndex(imageGalleryIndex - 1);
+    }
+  };
+
   return (
     <div className="bg-primary">
       <Head>
@@ -574,6 +612,47 @@ const Movie = ({ data }: any) => {
         </div>
       </div>
 
+      {/* Modal */}
+      {isModalOpen && imagesRes?.data && (
+        // <Modal handleDivClose={() => setIsModalOpen(!isModalOpen)}>
+        <Modal handleDivClose={() => {}}>
+          <div className="max-h-[90%] flex flex-col justify-center items-center">
+            <button
+              className="text-slate-400 p-2 self-end font-bold"
+              onClick={() => setIsModalOpen(!isModalOpen)}
+            >
+              Close
+            </button>
+            <Image
+              key={imageGalleryIndex}
+              className="h-auto mb-1 cursor-pointer"
+              src={`https://image.tmdb.org/t/p/original/${imagesRes?.data.backdrops[imageGalleryIndex].file_path}`}
+              alt={`Image Gallery ${imageGalleryIndex}`}
+              height="600"
+              width="1000"
+            />
+            {/* Gallery Controls */}
+            <div className="flex justify-center items-center">
+              <button
+                className="text-slate-400 p-2 self-end font-bold"
+                onClick={handleGalleryPrevious}
+              >
+                Prev
+              </button>
+              <p className="text-slate-400">
+                [ {imageGalleryIndex} / {imageGallreyLength} ]
+              </p>
+              <button
+                className="text-green-400 p-2 self-end font-bold"
+                onClick={handleGalleryNext}
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </Modal>
+      )}
+
       {/* Blur */}
       <div className="h-20 bg-[#5c6b8b] absolute w-full z-10 blur-3xl"></div>
 
@@ -619,6 +698,11 @@ const Movie = ({ data }: any) => {
                     alt={backdrop.file_path}
                     height="280"
                     width="160"
+                    onClick={() => {
+                      setImageGalleryIndex(i);
+                      console.log(i);
+                      setIsModalOpen(!isModalOpen);
+                    }}
                   />
                 ))}
             </div>
@@ -739,11 +823,15 @@ const Movie = ({ data }: any) => {
           Reviews
         </h1>
         {reviewState && reviewState.length > 0 ? (
-          <div className="text-white px-6 grid xsm:grid-cols-reviewsm lg:grid-cols-review gap-4">
+          <div className="text-white grid xsm:grid-cols-reviewsm lg:grid-cols-review gap-4">
             {reviewState?.map((review: any, i: number) => (
               <div
                 key={i}
-                className="py-10 bg-green-200 rounded-lg px-4 h-fit flex bg-opacity-10 items-center"
+                className="py-10 bg-green-200 rounded-lg px-4 h-fit flex bg-opacity-10 items-center cursor-pointer"
+                onClick={() => {
+                  setCurrentReviewIndex(i);
+                  setIsReviewModalOpen(!isReviewModalOpen);
+                }}
               >
                 <Image
                   key={i}
@@ -771,6 +859,47 @@ const Movie = ({ data }: any) => {
           </div>
         )}
       </div>
+
+      {isReviewModalOpen && reviewState && reviewState?.length > 0 && (
+        // <Modal handleDivClose={() => setIsModalOpen(!isModalOpen)}>
+        <Modal handleDivClose={() => {}}>
+          <div className=" bg-black bg-opacity-60 rounded-lg text-white flex justify-center flex-col max-h-[80%] xsm:p-4 lg:p-8 w-[80%]">
+            {/* Avatar + name */}
+            <div className="flex xsm:my-4 md:my-8 justify-between items-center">
+              <div className="flex xsm:mb-4 md:mb-8 items-center">
+                <Image
+                  className="xsm:w-12 xsm:h-12 lg:w-20 lg:h-20 cursor-pointer rounded-full mr-6"
+                  src={`https://image.tmdb.org/t/p/original/${reviewState[currentReviewIndex].author_details.avatar_path}`}
+                  alt={reviewState[currentReviewIndex].author}
+                  height="100"
+                  width="100"
+                />
+                <div>
+                  <p className="text-slate-400 font-bold">
+                    {reviewState[currentReviewIndex].author}
+                  </p>
+                  <p className="xsm:text-xs md:text-sm mb-2">
+                    <>{reviewState[currentReviewIndex].created_at}</>
+                  </p>
+                </div>
+              </div>
+              <button
+                className="text-slate-400 p-2 font-bold"
+                onClick={() => setIsReviewModalOpen(!isReviewModalOpen)}
+              >
+                Close
+              </button>
+            </div>
+            {/* Review content */}
+            <div className=" overflow-y-scroll lg:scrollbar scrollbar-thumb-green-400 scrollbar-track-primary xsm:scrollbar-thin px-6">
+              <p className="">
+                &quot;{reviewState[currentReviewIndex].content}&quot;
+              </p>
+            </div>
+          </div>
+        </Modal>
+      )}
+
       <Toaster position="top-right" reverseOrder={false} />
     </div>
   );

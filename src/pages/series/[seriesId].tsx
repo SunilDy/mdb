@@ -79,9 +79,16 @@ const Movie = ({ data }: any) => {
   const tvImagesContainerRef = useRef<HTMLElement>(null);
   const [clientWidth, setClientWidth] = useState(0);
   const [travel, setTravel] = useState(300);
+
+  // Image gallery modal states
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageGallreyLength, setImageGalleryLength] = useState(0);
   const [imageGalleryIndex, setImageGalleryIndex] = useState(0);
+
+  // review modal states
+  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
+  const [reviewResultLength, setReviewResultLength] = useState(0);
+  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
 
   const { data: session } = useSession();
   const router = useRouter();
@@ -182,16 +189,6 @@ const Movie = ({ data }: any) => {
       }
     }
 
-    if (reviewsRes?.data.results) {
-      let newArr = reviewsRes?.data.results.filter((result: any) => {
-        return (
-          result.author_details.avatar_path &&
-          !result.author_details.avatar_path.includes("/http")
-        );
-      });
-      setReviewState(newArr);
-    }
-
     if (creditRes?.data.cast) {
       let filtered = creditRes?.data.cast.filter(
         (cast: CastType) => cast.profile_path !== null
@@ -207,15 +204,26 @@ const Movie = ({ data }: any) => {
     if (imagesRes?.data) {
       setImageGalleryLength(imagesRes?.data.backdrops.length);
     }
-    console.log(imagesRes);
-  }, [
-    recommendedTitlesRes,
-    similarTitlesRes,
-    imagesRes,
-    videoRes,
-    creditRes,
-    reviewsRes,
-  ]);
+    // console.log(imagesRes);
+  }, [recommendedTitlesRes, similarTitlesRes, imagesRes, videoRes, creditRes]);
+
+  useEffect(() => {
+    if (reviewsRes?.data.results) {
+      let newArr = reviewsRes?.data.results.filter((result: any) => {
+        return (
+          result.author_details.avatar_path &&
+          !result.author_details.avatar_path.includes("/http")
+        );
+      });
+      let withDate = newArr.map((item: ReviewType) => {
+        let date = new Date(item.created_at);
+        let readableDate = format(date, "MM/dd/yyyy");
+        return { ...item, created_at: readableDate };
+      });
+      setReviewState(withDate);
+      setReviewResultLength(withDate.length);
+    }
+  }, [reviewsRes]);
 
   useEffect(() => {
     console.log("imageGalleryIndex", imageGalleryIndex);
@@ -227,6 +235,8 @@ const Movie = ({ data }: any) => {
     castState,
     imageGallreyLength,
     imageGalleryIndex,
+    reviewResultLength,
+    currentReviewIndex,
   ]);
 
   useEffect(() => {
@@ -633,7 +643,7 @@ const Movie = ({ data }: any) => {
         <Modal handleDivClose={() => {}}>
           <div className="max-h-[90%] flex flex-col justify-center items-center">
             <button
-              className="text-green-400 p-2 self-end font-bold"
+              className="text-slate-400 p-2 self-end font-bold"
               onClick={() => setIsModalOpen(!isModalOpen)}
             >
               Close
@@ -649,7 +659,7 @@ const Movie = ({ data }: any) => {
             {/* Gallery Controls */}
             <div className="flex justify-center items-center">
               <button
-                className="text-green-400 p-2 self-end font-bold"
+                className="text-slate-400 p-2 self-end font-bold"
                 onClick={handleGalleryPrevious}
               >
                 Prev
@@ -658,7 +668,7 @@ const Movie = ({ data }: any) => {
                 [ {imageGalleryIndex} / {imageGallreyLength} ]
               </p>
               <button
-                className="text-slate-400 p-2 self-end font-bold"
+                className="text-green-400 p-2 self-end font-bold"
                 onClick={handleGalleryNext}
               >
                 Next
@@ -712,7 +722,6 @@ const Movie = ({ data }: any) => {
                     width="160"
                     onClick={() => {
                       setImageGalleryIndex(i);
-                      console.log(i);
                       setIsModalOpen(!isModalOpen);
                     }}
                   />
@@ -835,7 +844,11 @@ const Movie = ({ data }: any) => {
             {reviewState?.map((review: any, i: number) => (
               <div
                 key={i}
-                className="py-10 bg-green-200 rounded-lg px-4 h-fit flex bg-opacity-10 items-center"
+                className="py-10 bg-green-200 rounded-lg px-4 h-fit flex bg-opacity-10 items-center cursor-pointer"
+                onClick={() => {
+                  setCurrentReviewIndex(i);
+                  setIsReviewModalOpen(!isReviewModalOpen);
+                }}
               >
                 <Image
                   key={i}
@@ -863,6 +876,45 @@ const Movie = ({ data }: any) => {
           </div>
         )}
       </div>
+      {isReviewModalOpen && reviewState && reviewState?.length > 0 && (
+        // <Modal handleDivClose={() => setIsModalOpen(!isModalOpen)}>
+        <Modal handleDivClose={() => {}}>
+          <div className=" bg-black bg-opacity-60 rounded-lg text-white flex justify-center flex-col max-h-[80%] xsm:p-4 lg:p-8 w-[80%]">
+            {/* Avatar + name */}
+            <div className="flex xsm:my-4 md:my-8 justify-between items-center">
+              <div className="flex xsm:mb-4 md:mb-8 items-center">
+                <Image
+                  className="xsm:w-12 xsm:h-12 lg:w-20 lg:h-20 cursor-pointer rounded-full mr-6"
+                  src={`https://image.tmdb.org/t/p/original/${reviewState[currentReviewIndex].author_details.avatar_path}`}
+                  alt={reviewState[currentReviewIndex].author}
+                  height="100"
+                  width="100"
+                />
+                <div>
+                  <p className="text-slate-400 font-bold">
+                    {reviewState[currentReviewIndex].author}
+                  </p>
+                  <p className="xsm:text-xs md:text-sm mb-2">
+                    <>{reviewState[currentReviewIndex].created_at}</>
+                  </p>
+                </div>
+              </div>
+              <button
+                className="text-slate-400 p-2 font-bold"
+                onClick={() => setIsReviewModalOpen(!isReviewModalOpen)}
+              >
+                Close
+              </button>
+            </div>
+            {/* Review content */}
+            <div className=" overflow-y-scroll lg:scrollbar scrollbar-thumb-green-400 scrollbar-track-primary xsm:scrollbar-thin px-6">
+              <p className="">
+                &quot;{reviewState[currentReviewIndex].content}&quot;
+              </p>
+            </div>
+          </div>
+        </Modal>
+      )}
       <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
