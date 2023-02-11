@@ -863,19 +863,19 @@ const Movie = ({ data }: any) => {
       {isReviewModalOpen && reviewState && reviewState?.length > 0 && (
         // <Modal handleDivClose={() => setIsModalOpen(!isModalOpen)}>
         <Modal handleDivClose={() => {}}>
-          <div className=" bg-black bg-opacity-60 rounded-lg text-white flex justify-center flex-col max-h-[80%] xsm:p-4 lg:p-8 w-[80%]">
+          <div className=" bg-black bg-opacity-60 rounded-lg text-white flex justify-center flex-col max-h-[80%] xsm:p-4 lg:p-8 xsm:w-[98%] md:w-[80%]">
             {/* Avatar + name */}
-            <div className="flex xsm:my-4 md:my-8 justify-between items-center">
+            <div className="flex xsm:my-4 md:my-8 justify-between items-start">
               <div className="flex xsm:mb-4 md:mb-8 items-center">
                 <Image
-                  className="xsm:w-12 xsm:h-12 lg:w-20 lg:h-20 cursor-pointer rounded-full mr-6"
+                  className="xsm:w-12 xsm:h-12 lg:w-20 lg:h-20 cursor-pointer rounded-full xsm:mr-2 md:mr-6"
                   src={`https://image.tmdb.org/t/p/original/${reviewState[currentReviewIndex].author_details.avatar_path}`}
                   alt={reviewState[currentReviewIndex].author}
                   height="100"
                   width="100"
                 />
                 <div>
-                  <p className="text-slate-400 font-bold">
+                  <p className="text-slate-400 font-bold xsm:text-xs md:text-md">
                     {reviewState[currentReviewIndex].author}
                   </p>
                   <p className="xsm:text-xs md:text-sm mb-2">
@@ -884,7 +884,7 @@ const Movie = ({ data }: any) => {
                 </div>
               </div>
               <button
-                className="text-slate-400 p-2 font-bold"
+                className="text-slate-400 p-2 font-bold xsm:text-xs md:text-md"
                 onClick={() => setIsReviewModalOpen(!isReviewModalOpen)}
               >
                 Close
