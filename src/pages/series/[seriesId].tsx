@@ -12,6 +12,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { Josefin_Sans } from "@next/font/google";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import Modal from "components/Modal";
 
 const jose = Josefin_Sans({
   subsets: ["latin"],
@@ -78,6 +79,9 @@ const Movie = ({ data }: any) => {
   const tvImagesContainerRef = useRef<HTMLElement>(null);
   const [clientWidth, setClientWidth] = useState(0);
   const [travel, setTravel] = useState(300);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [imageGallreyLength, setImageGalleryLength] = useState(0);
+  const [imageGalleryIndex, setImageGalleryIndex] = useState(0);
 
   const { data: session } = useSession();
   const router = useRouter();
@@ -199,6 +203,11 @@ const Movie = ({ data }: any) => {
         setCastState(filtered);
       }
     }
+
+    if (imagesRes?.data) {
+      setImageGalleryLength(imagesRes?.data.backdrops.length);
+    }
+    console.log(imagesRes);
   }, [
     recommendedTitlesRes,
     similarTitlesRes,
@@ -208,12 +217,16 @@ const Movie = ({ data }: any) => {
     reviewsRes,
   ]);
 
-  useEffect(() => {}, [
+  useEffect(() => {
+    console.log("imageGalleryIndex", imageGalleryIndex);
+  }, [
     similarTitles,
     recommendedTitles,
     reviewState,
     videoState,
     castState,
+    imageGallreyLength,
+    imageGalleryIndex,
   ]);
 
   useEffect(() => {
@@ -413,6 +426,22 @@ const Movie = ({ data }: any) => {
     }
   };
 
+  const handleGalleryNext = () => {
+    if (imageGalleryIndex === imageGallreyLength - 1) {
+      setImageGalleryIndex(0);
+    } else {
+      setImageGalleryIndex(imageGalleryIndex + 1);
+    }
+  };
+
+  const handleGalleryPrevious = () => {
+    if (imageGalleryIndex === 0) {
+      setImageGalleryIndex(imageGallreyLength - 1);
+    } else {
+      setImageGalleryIndex(imageGalleryIndex - 1);
+    }
+  };
+
   return (
     <div className="bg-primary">
       <Head>
@@ -598,6 +627,46 @@ const Movie = ({ data }: any) => {
           </div>
         </div>
       </div>
+      {/* Modal */}
+      {isModalOpen && imagesRes?.data && (
+        // <Modal handleDivClose={() => setIsModalOpen(!isModalOpen)}>
+        <Modal handleDivClose={() => {}}>
+          <div className="max-h-[90%] flex flex-col justify-center items-center">
+            <button
+              className="text-green-400 p-2 self-end font-bold"
+              onClick={() => setIsModalOpen(!isModalOpen)}
+            >
+              Close
+            </button>
+            <Image
+              key={imageGalleryIndex}
+              className="h-auto mb-1 cursor-pointer"
+              src={`https://image.tmdb.org/t/p/original/${imagesRes?.data.backdrops[imageGalleryIndex].file_path}`}
+              alt={`Image Gallery ${imageGalleryIndex}`}
+              height="600"
+              width="1000"
+            />
+            {/* Gallery Controls */}
+            <div className="flex justify-center items-center">
+              <button
+                className="text-green-400 p-2 self-end font-bold"
+                onClick={handleGalleryPrevious}
+              >
+                Prev
+              </button>
+              <p className="text-slate-400">
+                [ {imageGalleryIndex} / {imageGallreyLength} ]
+              </p>
+              <button
+                className="text-slate-400 p-2 self-end font-bold"
+                onClick={handleGalleryNext}
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </Modal>
+      )}
       {/* Blur */}
       <div className="h-20 bg-[#5c6b8b] absolute w-full z-10 blur-3xl"></div>
       {/* Images ==================================================== */}
@@ -641,6 +710,11 @@ const Movie = ({ data }: any) => {
                     alt={backdrop.file_path}
                     height="280"
                     width="160"
+                    onClick={() => {
+                      setImageGalleryIndex(i);
+                      console.log(i);
+                      setIsModalOpen(!isModalOpen);
+                    }}
                   />
                 ))}
             </div>

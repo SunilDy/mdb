@@ -9,7 +9,7 @@ const LoadMoreButton = (props: any) => {
   return (
     <div className="flex items-center">
       <Link href={`genre/${props.genreId}?page=1`}>
-        <button className="flex justify-center items-center bg-green-400 text-primary px-6 py-2 rounded-2xl mb-1 cursor-pointer transition-shadow hover:shadow-3xl font-bold">
+        <button className="bg-green-400 text-primary py-1 xsm:px-2 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm md:text-lg">
           More...
         </button>
       </Link>

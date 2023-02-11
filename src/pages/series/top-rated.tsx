@@ -35,7 +35,7 @@ const TopRatedTV = ({ data }: any) => {
       <div className="flex justify-center my-10 gap-x-2">
         {pageParsed > 1 && (
           <Link href={`top-rated?page=${pageParsed - 1}`}>
-            <button className="bg-green-400 text-primary p-2 rounded-lg font-semibold">
+            <button className="text-green-400 py-1 xsm:px-2 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm md:text-lg">
               Previous Page
             </button>
           </Link>
@@ -43,14 +43,14 @@ const TopRatedTV = ({ data }: any) => {
 
         {pageParsed === 1 && (
           <Link href={`/series`}>
-            <button className="bg-green-400 text-primary p-2 rounded-lg font-semibold">
+            <button className="text-green-400 py-1 xsm:px-2 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm md:text-lg">
               Go Back
             </button>
           </Link>
         )}
 
         <Link href={`top-rated?page=${pageParsed + 1}`}>
-          <button className="bg-green-400 text-primary p-2 rounded-lg font-semibold">
+          <button className="bg-green-400 text-primary py-1 xsm:px-2 lg:px-4 rounded-md font-semibold xsm:text-xs sm:text-sm md:text-lg">
             Next Page
           </button>
         </Link>

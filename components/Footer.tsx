@@ -130,7 +130,7 @@ const Footer = () => {
           <h1 className="text-green-400 xsm:text-md lg:text-xl font-semibold xsm:mb-0 sm:mb-4">
             Pages
           </h1>
-          <Link href="/auth">
+          <Link href="/auth/login">
             <p>Login</p>
           </Link>
           <Link href="/movies">
