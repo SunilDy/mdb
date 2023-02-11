@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
 import TvCard from "components/TvCard";
-import { FallingLines } from "react-loader-spinner";
+import { TailSpin } from "react-loader-spinner";
 
 const getTrendingTv = () => {
   return axios.get(
@@ -68,8 +68,17 @@ const TrendingTV = () => {
 
   if (isLoadingTrending || isLoadingTopRated || isLoadingPopular) {
     return (
-      <div className="flex justify-center items-center h-36">
-        <FallingLines color="#4ADE80" width="100" visible={true} />
+      <div className="flex justify-center items-center h-60">
+        <TailSpin
+          height="80"
+          width="80"
+          color="#4ADE80"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
       </div>
     );
   }

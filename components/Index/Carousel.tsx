@@ -12,6 +12,7 @@ import {
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { Josefin_Sans } from "@next/font/google";
 import Link from "next/link";
+import { FallingLines, TailSpin } from "react-loader-spinner";
 
 const jose = Josefin_Sans({
   subsets: ["latin"],
@@ -50,9 +51,7 @@ type CarousalProps = {
   carousalData: any;
 };
 
-const Carousal = ({ carousalData }: CarousalProps) => {
-  // const windowSize = useWindowSize();
-  // console.log(windowSize.width);
+const Carousal = () => {
   const [movies, setMovies] = useState<MovieType[] | null>(null);
   const [windowWidth, setWindowWidth] = useState<number | null>(null);
 
@@ -92,7 +91,20 @@ const Carousal = ({ carousalData }: CarousalProps) => {
   useEffect(() => {}, [movies]);
 
   if (isLoading) {
-    return <p className="text-3xl text-white">Loading</p>;
+    return (
+      <div className="flex justify-center items-center h-60">
+        <TailSpin
+          height="80"
+          width="80"
+          color="#4ADE80"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      </div>
+    );
   }
 
   let carousalHeight = 120;
@@ -117,8 +129,6 @@ const Carousal = ({ carousalData }: CarousalProps) => {
     }
   }
 
-  let carousalSpliced = carousalData.splice(0, 5);
-
   return (
     <div className="text-white">
       {movies && (
@@ -130,8 +140,8 @@ const Carousal = ({ carousalData }: CarousalProps) => {
           isPlaying={true}
         >
           <Slider>
-            {carousalSpliced &&
-              carousalSpliced.map((movie: MovieType, i: number) => (
+            {movies &&
+              movies.map((movie: MovieType, i: number) => (
                 <Slide key={movie.id} index={i}>
                   <div
                     className="h-full bg-center bg-cover grid grid-cols-1"

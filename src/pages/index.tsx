@@ -20,30 +20,10 @@ export default function Home({ carousalData }: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="bg-[#0F172A] border-2 border-primary">
-        <Carousal carousalData={carousalData} />
+        <Carousal />
         <TrendingMovie />
         <TrendingTV />
       </main>
     </>
   );
 }
-
-function randomNumber(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min) + min);
-}
-
-export const getServerSideProps = async () => {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/movie/top_rated?api_key=${
-      process.env.NEXT_PUBLIC_API_KEY
-    }&page=${randomNumber(1, 100)}`
-  );
-  const data = await res.json();
-  const carousalData = data.results;
-
-  return {
-    props: {
-      carousalData,
-    },
-  };
-};
