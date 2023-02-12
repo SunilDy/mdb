@@ -43,7 +43,16 @@ ___
 13. The user has the option to login to the app using `Google` or `Github`.
 14. The user can logout of the app in the `/user` page.
 ___
+## Environmental Variables Used
 
+- NEXT_PUBLIC_SERVER_URL: The base address of the app, if running locally, for example `http://localhost:3000`
+- NEXT_PUBLIC_API_KEY: The TMDB API Key
+- GOOGLE_CLIENT_ID: Google client ID for user authentication, can be obtained from google console
+- GOOGLE_SECRET: Google secret for user authentication, can be obtained from google console
+- GITHUB_CLIENT_ID: Github client ID for user authentication, this can be obtainer from `https://github.com/settings/applications/new`, you would need to register a new application.
+- GITHUB_SECRET: Github secret for user authentication, can be obtained post registration of the application of the app
+- DB_URL: The mongodb cloud database url. Here I have used `MongoDB Atlas`, other products could also be used if desired, make sure the admin user is created and the user name and password is included in the connection string.
+___
 ## Knows Technical / UI Bugs
 - [ ] FIX: Sections having title cards using grid's auto-fit causes the card to span the whole space, rather use flex wrap to prevent the span.
 - [ ] FIX: The image slider in `/series/id` not working
