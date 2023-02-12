@@ -1,38 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Brand Logo](public/logo/logo_full.png)
+---
+> ## App Description
+Flixbase is a web app, a comprehensive and user-friendly platform for movie and TV show fans. 
+ 
+It offers an extensive library of titles, providing detailed information on the plot, cast, release date, ratings, and related media, as well as related videos and images to give users a more immersive experience. 
 
-## Getting Started
+The app allows users to browse by genre or by top-rated, upcoming, and recommended titles, making it easy to discover new and exciting content. 
 
-First, run the development server:
+Additionally, users have the ability to like and add titles to their wishlist, allowing them to keep track of their favorite shows and movies, and ensuring they never miss a new release. Whether you're a die-hard fan or just looking for your next binge-worthy show, this app has everything you need to satisfy your entertainment cravings and keep track of your movie and TV show wishlist.
+___
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+> ## Tech Stack Used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<img src="public/readme/react.png" alt="ReactJS" title="ReactJS" height="88" width="100"/>
+<img src="public/readme/next.png" alt="NextJS" title="NextJS" height="100" width="100"/>
+<img src="public/readme/mongo.png" alt="MongoDB" title="MongoDB" height="100" width="100"/>
+<img src="public/readme/tailwind.png" alt="Tailwind CSS" title="Tailwind CSS" height="100" width="100"/>
+<img src="public/readme/react-query.png" alt="React-Query" title="React-Query" height="90" width="100"/>
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+___
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Features of the app
+1. **` Discover Movies and TV Shows `** by genre and different sections like top-rated movies, upcoming movies, currently playing movies etc.
+2. **` Search Option `**: User can use the search bar to look for any movie or tv show
+3. **` The Landing Page Carousal `**: The carousal features five top-rated movies and five top-rated tv shows, and on each request, different items are pulled from the TMDB API.
+4. The rest of the landing page features movies and tv shows by different sections .
+5. The app has **` Pagination `** for each of the sections and genres built in, shows 20 items in each page.
+6. The **` Footer `** has all the links available on the app.
+7. The app also has **` Authentication `** and offers additional features upon authentication.
+8. Each movie and tv show correspond to an `ID` using which the item is fetched from the API, and the route is as such `movies/id` and `series/id` for eg `series/41727`
+9. The single movie / tv show page have the same layout.
+   1.  The **`Hero Section`**, where most of the details of the title could be found like the title name, the overview, the tagline, the runtime, average rating etc.
+   2.  Scrolling little down, we can find the **` Image Gallery `**: users can scroll through the horizontal gallery using `SHIFT + MOUSE WHEEL` or use the arrows provided.
+   3.  The image gallery has *modal feature*, meaninig upon click on a image, the pop-up modal is viewed with the image clicked, the user can now view all the images from the gallery with simple navigation.
+   4.  Then we have the **` Cast Section `**, with avatar of the cast and also the name.
+   5.  Then we have the videos related to the title. As this is pulled out from the API, this might not always return the desired result like trailers and such.
+   6.  After that we have the **` Recommended `** and **` Suggested `** titles section, the titles here are strongly related to the title in question, it helps when user wants to see something realted to the said title.
+   7.  Then we come to the **` Reviews Section `** : This section also has the same *modal feature*, upon click on which it opens the specific review that the user has clicked on.
+10. Not to mention, the whole app is **` Fully Responsive `**, built with mobile first approach.
+11. The user **` Upon Authentication `** can add a movie or a tv show to the liked-list or the watchlist to binge watch later, and would not need to scramble google finding a good movie or a tv show to watch.
+12. The user can also navigate to the `/user` page, located on the navbar's user avatar/title of the avatar, where the user can view all the saved content and delete them as needed.
+13. The user has the option to login to the app using `Google` or `Github`.
+14. The user can logout of the app in the `/user` page.
+___
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Knows Technical / UI Bugs
+- [ ] FIX: Sections having title cards using grid's auto-fit causes the card to span the whole space, rather use flex wrap to prevent the span.
+- [ ] FIX: The image slider in `/series/id` not working
+- [ ] FIX: Add `More` button to sections in the landing page
